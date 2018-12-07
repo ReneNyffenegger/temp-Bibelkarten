@@ -1,0 +1,2 @@
+wget https://www.openbible.info/geo/data/places.txt
+wget https://www.openbible.info/geo/data/merged.txt
