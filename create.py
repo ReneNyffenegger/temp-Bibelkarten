@@ -1,11 +1,56 @@
 #!/usr/bin/python3
-
 # vim: foldmethod=marker foldmarker={,}
 
+import csv
 
+openbible_places = {}
+
+class Node():
+      pass
+
+class Way():
+      pass
+
+class Relation():
+      pass
+
+ways = {};
+
+ways['Grenze-Asser-Naphtali'] = []
+
+def read_openbible_merged(): # {
+
+    merged_f   = open('openbible.info/merged.txt', 'r')
+    merged_csv = csv.reader(merged_f, delimiter="\t")
+
+    next(merged_f, None)
+    next(merged_f, None)
+
+    for record in merged_csv:
+        place_name = record[0]
+        if place_name in openbible_places:
+           print('Place name {:s} already seen'.format(place_name))
+
+        lat = record[2]
+        lon = record[3]
+        
+        openbible_places[place_name] = {}
+        openbible_places[place_name]['lat'] = lat
+        openbible_places[place_name]['lon'] = lon
+
+# }
+
+def kml_start_folder(kml_f, name): # {
+    kml_f.write('<Folder><name>{:s}</name><open>1</open>'.format(name))
+# }
+
+def kml_end_folder(kml_f): # {
+    kml_f.write('</Folder>')
+# }
 
 def Stamm_Manasse(): # {
-    pass
+    kml_start_folder(kml_f, 'Stamm Manasse')
+    kml_end_folder(kml_f)
 # }
 
 def write_KML_intro(): # {
@@ -94,6 +139,7 @@ def write_KML_outro(kml_f): # {
 
 kml_f = write_KML_intro()
 
+# {
 kml_f.write("""
 	<Folder>
 		<name>Karte</name>
@@ -170,9 +216,11 @@ kml_f.write("""
 		</Folder>
 	</Folder>
 
-""")
+""") # }
 
-write_KML_outro(kml_f)
+
+read_openbible_merged()
 
 Stamm_Manasse()
 
+write_KML_outro(kml_f)
