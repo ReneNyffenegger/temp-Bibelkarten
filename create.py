@@ -2,21 +2,68 @@
 # vim: foldmethod=marker foldmarker={,}
 
 import csv
+import re
 
-openbible_places = {}
 
 class Node():
-      pass
+      def __init__(self, lon, lat):
+            self.lon = lon
+            self.lat = lat
 
 class Way():
-      pass
+      def __init__(self, *nodes):
+          self.nodes = nodes
 
 class Relation():
       pass
 
-ways = {};
 
-ways['Grenze-Asser-Naphtali'] = []
+class AddDotAccessToDict:
+#     d = dict()
+#     __getattr__ = dict.get
+#     __setattr__ = dict.__setitem__
+#     __delattr__ = dict.__delitem__
+
+      def __init__(self, d):
+          self.d = d
+
+      def __getattr__(self, attr):
+          return self.d[attr]
+
+      def __setattr__(self, attr, val):
+#         if attr == 'd':
+          object.__setattr__(self, attr, val)
+#            return
+#         self.d[attr] = val
+
+openbible_nodes = {}
+obn = AddDotAccessToDict(openbible_nodes)
+ways = {};
+way = AddDotAccessToDict(ways)
+
+def create_ways(): # {
+    way.MeerAsser = Way(obn.Sidon, obn.Zarephath, obn.Tyre, obn.Acco)
+
+
+def draw_way(kml_f, way):
+    kml_f.write(""" <Placemark>
+				<name>Untitled Polygon</name>
+		                <styleUrl>#m_ylw-pushpin</styleUrl>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>""")
+    for n in way.nodes:
+        kml_f.write(" {:15.12f},{:15.12f}".format(n.lon, n.lat))
+
+    kml_f.write("""</coordinates>
+		</LineString>
+	</Placemark>""")
+
+
+ 
+# ways['Grenze-Asser-Naphtali'] = Way(obn.Sidon, obn.Zarephath, obn.Tyre, obn.Acco)
+
+# }
 
 def read_openbible_merged(): # {
 
@@ -27,16 +74,26 @@ def read_openbible_merged(): # {
     next(merged_f, None)
 
     for record in merged_csv:
+
+        lat_string = record[2]
+        lon_string = record[3]
+
+        if lon_string == '?' or lat_string == '?':
+           continue
+
         place_name = record[0]
-        if place_name in openbible_places:
+        if place_name in openbible_nodes:
            print('Place name {:s} already seen'.format(place_name))
 
-        lat = record[2]
-        lon = record[3]
-        
-        openbible_places[place_name] = {}
-        openbible_places[place_name]['lat'] = lat
-        openbible_places[place_name]['lon'] = lon
+        lon_string = re.sub('[<~>?]', '', lon_string)
+        lat_string = re.sub('[<~>?]', '', lat_string)
+
+        if lon_string == '' or lat_string == '':
+           continue
+
+        openbible_nodes[place_name] = Node(float(lon_string), float(lat_string))
+#       openbible_nodes[place_name]['lat'] = lat
+#       openbible_nodes[place_name]['lon'] = lon
 
 # }
 
@@ -221,6 +278,9 @@ kml_f.write("""
 
 read_openbible_merged()
 
-Stamm_Manasse()
+create_ways()
+draw_way(kml_f, way.MeerAsser)
+
+# Stamm_Manasse()
 
 write_KML_outro(kml_f)
