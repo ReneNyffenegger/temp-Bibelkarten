@@ -294,8 +294,31 @@ kml.draw_node(obn.d['Beth-anath'], 'ff7711ff', 'ff7711ff')
 kml.draw_node(obn.Yiron         , 'ff7711ff', 'ff7711ff')
 kml.draw_node(obn.d['Beth-shemesh 3'], 'ff7711ff', 'ff7711ff')
 
-kml.write('karte_created.kml')
 # }
+
+# Dan Jos 19:41 {
+
+kml.draw_node(obn.Zorah  , 'ff55ff00', 'ff55ff00')
+kml.draw_node(obn.Eshtaol, 'ff55ff00', 'ff55ff00')
+kml.draw_node(obn.d['Ir-shemesh'], 'ff55ff00', 'ff55ff00')
+
+kml.draw_node(obn.Aijalon        , 'ff55ff00', 'ff55ff00')
+kml.draw_node(obn.Ithlah         , 'ff55ff00', 'ff55ff00')
+kml.draw_node(obn.Shaalabbin     , 'ff55ff00', 'ff55ff00')
+
+kml.draw_node(obn.Ekron          , 'ff55ff00', 'ff55ff00')
+kml.draw_node(obn.Elon           , 'ff55ff00', 'ff55ff00')
+kml.draw_node(obn.d['Timnah 1']  , 'ff55ff00', 'ff55ff00')
+
+kml.draw_node(obn.Eltekeh        , 'ff55ff00', 'ff55ff00')
+kml.draw_node(obn.Gibbethon      , 'ff55ff00', 'ff55ff00')
+kml.draw_node(obn.d['Baalath 1'] , 'ff55ff00', 'ff55ff00')
+
+kml.draw_node(obn.Leshem         , 'ff55ff00', 'ff55ff00')
+
+# }
+
+kml.write('karte_created.kml')
 
 # Stamm_Manasse()
 
