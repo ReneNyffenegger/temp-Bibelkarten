@@ -21,10 +21,10 @@ class KML: # {
       def __init__(self):
           self.ways_to_draw = []
 
-      def draw(self, thing): # {
+      def draw(self, thing, color_RBGA, width): # {  RBG, not RGB!
 
           if type(thing) == Way:
-              self.ways_to_draw.append(thing)
+              self.ways_to_draw.append({'way': thing, 'color': color_RBGA, 'width': width})
           else:
               print('oha!')
       # }
@@ -34,18 +34,20 @@ class KML: # {
          self.write_intro(kml_f)
 
          for way_to_draw in self.ways_to_draw:
-             self.draw_way(kml_f, way_to_draw)
+             self.draw_way(kml_f, way_to_draw['way'], way_to_draw['color'], way_to_draw['width'])
 
          self.write_outro(kml_f)
       # }
 
-      def draw_way(self, kml_f, way): # {
-          kml_f.write(""" <Placemark>
-      				<name>Untitled Polygon</name>
-      		                <styleUrl>#m_ylw-pushpin</styleUrl>
-      				<LineString>
-      					<tessellate>1</tessellate>
-      					<coordinates>""")
+      def draw_way(self, kml_f, way, color, width): # {
+#     				<name>Untitled Polygon</name>
+#     		                <styleUrl>#m_ylw-pushpin</styleUrl>
+          kml_f.write(
+""" <Placemark>
+  <Style><LineStyle><color>{:s}</color><width>{:d}</width></LineStyle></Style>
+  <LineString>
+    <tessellate>1</tessellate>
+      <coordinates>""".format(color, width))
           for n in way.nodes:
               kml_f.write(" {:15.12f},{:15.12f}".format(n.lon, n.lat))
       
@@ -308,7 +310,7 @@ create_ways()
 
 kml = KML()
 
-kml.draw(way.MeerAsser)
+kml.draw(way.MeerAsser, 'ff0077ff', 5)
 
 kml.write('karte_created.kml')
 
