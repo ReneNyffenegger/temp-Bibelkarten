@@ -19,9 +19,16 @@ class Relation():
 
 class KML: # {
       def __init__(self):
-          self.ways_to_draw = []
+          self.ways_to_draw  = []
+          self.nodes_to_draw = []
 
-      def draw(self, thing, color_RBGA, width): # {  RBG, not RGB!
+      def draw_node(self, node, color_label, color_icon):
+          if type(node) == Node:
+              self.nodes_to_draw.append({'node': node, 'color_label': color_label, 'color_icon': color_icon})
+          else:
+              print('oha!')
+
+      def draw_way(self, thing, color_RBGA, width): # {  RBG, not RGB!
 
           if type(thing) == Way:
               self.ways_to_draw.append({'way': thing, 'color': color_RBGA, 'width': width})
@@ -34,12 +41,17 @@ class KML: # {
          self.write_intro(kml_f)
 
          for way_to_draw in self.ways_to_draw:
-             self.draw_way(kml_f, way_to_draw['way'], way_to_draw['color'], way_to_draw['width'])
+#            self.draw_way_(kml_f, way_to_draw['way'], way_to_draw['color'], way_to_draw['width'])
+             self.draw_way_(kml_f, way_to_draw)
+
+         for node_to_draw in self.nodes_to_draw:
+#            self.draw_node_(kml_f, way_to_draw['way'], way_to_draw['color'], way_to_draw['width'])
+             self.draw_node_(kml_f, node_to_draw)
 
          self.write_outro(kml_f)
       # }
 
-      def draw_way(self, kml_f, way, color, width): # {
+      def draw_way_(self, kml_f, way): # {
 #     				<name>Untitled Polygon</name>
 #     		                <styleUrl>#m_ylw-pushpin</styleUrl>
           kml_f.write(
@@ -47,14 +59,22 @@ class KML: # {
   <Style><LineStyle><color>{:s}</color><width>{:d}</width></LineStyle></Style>
   <LineString>
     <tessellate>1</tessellate>
-      <coordinates>""".format(color, width))
-          for n in way.nodes:
+      <coordinates>""".format(way['color'], way['width']))
+
+          for n in way['way'].nodes:
               kml_f.write(" {:15.12f},{:15.12f}".format(n.lon, n.lat))
       
           kml_f.write("""</coordinates>
       		</LineString>
       	</Placemark>""")
        # }
+
+      def draw_node_(self, kml_f, node): # {
+          kml_f.write(
+"""<Placemark>
+  <Style><IconStyle><color>{:s}</color></IconStyle><LabelStyle><color>{:s}</color></LabelStyle></Style>
+  <Point><coordinates>{:f},{:f}</coordinates></Point>
+</Placemark>""".format(node['color_icon'], node['color_icon'], node['node'].lon, node['node'].lat))
 
  
 # ways['Grenze-Asser-Naphtali'] = Way(obn.Sidon, obn.Zarephath, obn.Tyre, obn.Acco)
@@ -66,6 +86,7 @@ class KML: # {
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document>
 	<name>template.kml</name>
+        <!--
 	<Style id="s_ylw-pushpin_hl">
 		<IconStyle>
 			<scale>1.3</scale>
@@ -134,6 +155,7 @@ class KML: # {
 			<color>ab7faaff</color>
 		</PolyStyle>
 	</Style>
+        -->
 """) # }
           return kml_f
      # }
@@ -180,8 +202,11 @@ def create_ways(): # {
                               obn.Ebron, obn.d['Rehob 2'], obn.Hammon, obn.d['Kanah 2'], obn.Sidon
                              )
     way.Asser_jos_19_29 = Way(obn.Hosah, obn.Ummah, obn.d['Aphek 1'], obn.d['Rehob 3'])
-# }
 
+    way.Naphtali_jos_33 = Way(obn.Heleph, obn.Zaanannim, obn.d['Adami-nekeb'], obn.d['Jabneel 2'], obn.Lakkum)
+    way.Naphtali_jos_34 = Way(obn.Lakkum, obn.d['Aznoth-tabor'], # Westwärts
+                              obn.Hukkok) # Und so stieß sie an Sebulon gegen Süden, und an Asser stieß sie gegen Westen, und an Juda am Jordan gegen Sonnenaufgang.
+# }
 
 def read_openbible_merged(): # {
 
@@ -222,7 +247,6 @@ def kml_start_folder(kml_f, name): # {
 def kml_end_folder(kml_f): # {
     kml_f.write('</Folder>')
 # }
-
 def Stamm_Manasse(): # {
     kml_start_folder(kml_f, 'Stamm Manasse')
     kml_end_folder(kml_f)
@@ -241,9 +265,15 @@ create_ways()
 kml = KML()
 
 # Asser
-kml.draw(way.MeerAsser      , 'ff0077ff', 5)
-kml.draw(way.Asser_jos_19_25, 'ff2277ff', 5)
-kml.draw(way.Asser_jos_19_29, 'ff1177ff', 5)
+kml.draw_way(way.MeerAsser      , 'ff0077ff', 5)
+kml.draw_way(way.Asser_jos_19_25, 'ff7777ff', 5)
+kml.draw_way(way.Asser_jos_19_29, 'ff8877ff', 5)
+
+# Napthali
+kml.draw_way(way.Naphtali_jos_33, 'ff7711ff', 5)
+kml.draw_way(way.Naphtali_jos_34, 'ff7744ff', 5)
+
+kml.draw_node(obn.Ziddim, 'ff7711ff', 'ff7711ff')
 
 kml.write('karte_created.kml')
 
