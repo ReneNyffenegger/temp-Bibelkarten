@@ -6,9 +6,10 @@ import re
 
 
 class Node():
-      def __init__(self, lon, lat):
-            self.lon = lon
-            self.lat = lat
+      def __init__(self, name, lon, lat):
+            self.name = name
+            self.lon  = lon
+            self.lat   = lat
 
 class Way():
       def __init__(self, *nodes):
@@ -71,10 +72,10 @@ class KML: # {
 
       def draw_node_(self, kml_f, node): # {
           kml_f.write(
-"""<Placemark>
+"""<Placemark><name>{:s}</name>
   <Style><IconStyle><color>{:s}</color></IconStyle><LabelStyle><color>{:s}</color></LabelStyle></Style>
   <Point><coordinates>{:f},{:f}</coordinates></Point>
-</Placemark>""".format(node['color_icon'], node['color_icon'], node['node'].lon, node['node'].lat))
+</Placemark>""".format(node['node'].name, node['color_icon'], node['color_icon'], node['node'].lon, node['node'].lat))
 
  
 # ways['Grenze-Asser-Naphtali'] = Way(obn.Sidon, obn.Zarephath, obn.Tyre, obn.Acco)
@@ -234,7 +235,7 @@ def read_openbible_merged(): # {
         if lon_string == '' or lat_string == '':
            continue
 
-        openbible_nodes[place_name] = Node(float(lon_string), float(lat_string))
+        openbible_nodes[place_name] = Node(place_name, float(lon_string), float(lat_string))
 #       openbible_nodes[place_name]['lat'] = lat
 #       openbible_nodes[place_name]['lon'] = lon
 
@@ -266,16 +267,35 @@ kml = KML()
 
 # Asser
 kml.draw_way(way.MeerAsser      , 'ff0077ff', 5)
-kml.draw_way(way.Asser_jos_19_25, 'ff7777ff', 5)
-kml.draw_way(way.Asser_jos_19_29, 'ff8877ff', 5)
+kml.draw_way(way.Asser_jos_19_25, 'ff6677ff', 5)
+kml.draw_way(way.Asser_jos_19_29, 'ff5577ff', 5)
 
-# Napthali
+# Napthali Jos 19:33 ff {
 kml.draw_way(way.Naphtali_jos_33, 'ff7711ff', 5)
 kml.draw_way(way.Naphtali_jos_34, 'ff7744ff', 5)
 
-kml.draw_node(obn.Ziddim, 'ff7711ff', 'ff7711ff')
+kml.draw_node(obn.Ziddim , 'ff7711ff', 'ff7711ff')
+kml.draw_node(obn.Zer    , 'ff7711ff', 'ff7711ff')
+kml.draw_node(obn.Hammath, 'ff7711ff', 'ff7711ff')
+kml.draw_node(obn.Rakkath, 'ff7711ff', 'ff7711ff')
+kml.draw_node(obn.d['Chinnereth 2'], 'ff7711ff', 'ff7711ff')
+
+kml.draw_node(obn.Adamah      , 'ff7711ff', 'ff7711ff')
+kml.draw_node(obn.d['Ramah 3'], 'ff7711ff', 'ff7711ff')
+kml.draw_node(obn.d['Hazor 1'], 'ff7711ff', 'ff7711ff')
+
+kml.draw_node(obn.d['Kedesh 1'], 'ff7711ff', 'ff7711ff')
+kml.draw_node(obn.Edrei        , 'ff7711ff', 'ff7711ff')
+kml.draw_node(obn.d['En-hazor'], 'ff7711ff', 'ff7711ff')
+
+kml.draw_node(obn.Horem        , 'ff7711ff', 'ff7711ff')
+kml.draw_node(obn.d['Migdal-el'], 'ff7711ff', 'ff7711ff')
+kml.draw_node(obn.d['Beth-anath'], 'ff7711ff', 'ff7711ff')
+kml.draw_node(obn.Yiron         , 'ff7711ff', 'ff7711ff')
+kml.draw_node(obn.d['Beth-shemesh 3'], 'ff7711ff', 'ff7711ff')
 
 kml.write('karte_created.kml')
+# }
 
 # Stamm_Manasse()
 
