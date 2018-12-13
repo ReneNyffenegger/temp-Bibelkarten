@@ -15,8 +15,15 @@ class Way():
       def __init__(self, *nodes):
           self.nodes = nodes
 
-class Relation():
+class Ways():
       pass
+
+# class Relation():
+#       def __init__(self, *things):
+#           self.things = things
+
+class Area():
+    pass
 
 class KML: # {
       def __init__(self):
@@ -201,6 +208,10 @@ way = AddDotAccessToDict(ways)
 
 def create_ways(): # {
     way.MeerAsser       = Way(obn.Sidon, obn.Zarephath, obn.Tyre, obn.Acco)
+    way.Meer_Asdod_Gaza = Way(obn.Ashdod, obn.Ashkelon, obn.Gaza)
+
+    way.Grenze_Philister_jos_13_2 = Way(obn.Ashdod, obn.Ekron, obn.Gath, obn.Shihor, obn.Gaza)
+
     way.Asser_jos_19_25 = Way(obn.Helkath, obn.Hali, obn.Beten, obn.Achshaph,
                               obn.Allammelech, obn.Amad, obn.Mishal, # sie stieß an den Karmel, gegen Westen, und an den Sihor-Libnath;
                               obn.d['Beth-dagon 2'],  
@@ -271,376 +282,380 @@ create_ways()
 
 kml = KML()
 
+# def alle_Bezirke_der_Phlister_und_das_ganze_Geschuri:
 
-kml.draw_node(obn.d['Aroer 1'] , 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.Ashtaroth, 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.d['Bamoth-baal'] , 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.Bashan, 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.d['Beth-baal-meon'] , 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.d['Dibon 1'] , 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.Edrei, 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.Geshur, 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.Gilead, 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.Heshbon, 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.Jahaz, 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.Kedemoth, 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.d['Kiriathaim 1'] , 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.Maacath, 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.Medeba, 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.Mephaath, 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.d['Mount Hermon'] , 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.Salecah, 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.Sibmah, 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.d['Valley of the Arnon'] , 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.d['Zereth-shahar'] , 'ffffffff', 'ffffffff') # Josh 13:1
-kml.draw_node(obn.d['Aroer 2'] , 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.d['Beth-haram'] , 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.d['Beth-jeshimoth'] , 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.d['Beth-nimrah'] , 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.d['Beth-peor'] , 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.Betonim, 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.d['Debir 3'] , 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.Jazer, 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.Jordan, 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.Mahanaim, 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.Midian, 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.Pisgah, 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.Rabbah, 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.d['Ramath-mizpeh'] , 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.d['Sea of Chinnereth'] , 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.d['Succoth 1'] , 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.Zaphon, 'ffffffff', 'ffffffff') # Josh 13:2
-kml.draw_node(obn.Ashdod, 'ffffffff', 'ffffffff') # Josh 13:3
-kml.draw_node(obn.Ashkelon, 'ffffffff', 'ffffffff') # Josh 13:3
-kml.draw_node(obn.Egypt, 'ffffffff', 'ffffffff') # Josh 13:3
-kml.draw_node(obn.Ekron, 'ffffffff', 'ffffffff') # Josh 13:3
-kml.draw_node(obn.Gath, 'ffffffff', 'ffffffff') # Josh 13:3
-kml.draw_node(obn.Gaza, 'ffffffff', 'ffffffff') # Josh 13:3
-kml.draw_node(obn.Jair, 'ffffffff', 'ffffffff') # Josh 13:3
-kml.draw_node(obn.Jericho, 'ffffffff', 'ffffffff') # Josh 13:3
-kml.draw_node(obn.Moab, 'ffffffff', 'ffffffff') # Josh 13:3
-kml.draw_node(obn.Shihor, 'ffffffff', 'ffffffff') # Josh 13:3
-kml.draw_node(obn.d['Aphek 1'] , 'ffffffff', 'ffffffff') # Josh 13:4
-kml.draw_node(obn.Mearah, 'ffffffff', 'ffffffff') # Josh 13:4
-kml.draw_node(obn.d['Baal-gad'] , 'ffffffff', 'ffffffff') # Josh 13:5
-kml.draw_node(obn.Lebanon, 'ffffffff', 'ffffffff') # Josh 13:5
-kml.draw_node(obn.d['Lebo-hamath'] , 'ffffffff', 'ffffffff') # Josh 13:5
-kml.draw_node(obn.d['Misrephoth-maim'] , 'ffffffff', 'ffffffff') # Josh 13:6
-kml.draw_node(obn.Canaan, 'ffffffff', 'ffffffff') # Josh 14:1
-kml.draw_node(obn.Hebron, 'ffffffff', 'ffffffff') # Josh 14:1
-kml.draw_node(obn.d['Kiriath-arba'] , 'ffffffff', 'ffffffff') # Josh 14:1
-kml.draw_node(obn.d['Gilgal 1'] , 'ffffffff', 'ffffffff') # Josh 14:6
-kml.draw_node(obn.d['Kadesh-barnea'] , 'ffffffff', 'ffffffff') # Josh 14:6
-kml.draw_node(obn.d['Baalah 2'] , 'ffffffff', 'ffffffff') # Josh 15:1
-kml.draw_node(obn.d['Beth-shemesh 1'] , 'ffffffff', 'ffffffff') # Josh 15:1
-kml.draw_node(obn.Chesalon, 'ffffffff', 'ffffffff') # Josh 15:1
-kml.draw_node(obn.d['Debir 1'] , 'ffffffff', 'ffffffff') # Josh 15:1
-kml.draw_node(obn.Edom, 'ffffffff', 'ffffffff') # Josh 15:1
-kml.draw_node(obn.d['Great Sea'] , 'ffffffff', 'ffffffff') # Josh 15:1
-kml.draw_node(obn.d['Jabneel 1'] , 'ffffffff', 'ffffffff') # Josh 15:1
-kml.draw_node(obn.d['Kiriath-sepher'] , 'ffffffff', 'ffffffff') # Josh 15:1
-kml.draw_node(obn.d['Mount Baalah'] , 'ffffffff', 'ffffffff') # Josh 15:1
-kml.draw_node(obn.d['Mount Jearim'] , 'ffffffff', 'ffffffff') # Josh 15:1
-kml.draw_node(obn.d['Mount Seir 2'] , 'ffffffff', 'ffffffff') # Josh 15:1
-kml.draw_node(obn.Negeb, 'ffffffff', 'ffffffff') # Josh 15:1
-kml.draw_node(obn.Shikkeron, 'ffffffff', 'ffffffff') # Josh 15:1
-kml.draw_node(obn.d['Timnah 1'] , 'ffffffff', 'ffffffff') # Josh 15:1
-kml.draw_node(obn.d['Zin 1'] , 'ffffffff', 'ffffffff') # Josh 15:1
-kml.draw_node(obn.Adadah, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Amam, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.d['Baalah 1'] , 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Bealoth, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Beersheba, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.d['Beth-pelet'] , 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Biziothiah, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Dimonah, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.d['Eder 2'] , 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Ezem, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.d['Hazar-gaddah'] , 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.d['Hazar-shual'] , 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.d['Hazor 2'] , 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.d['Hazor 3'] , 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.d['Hazor-hadattah'] , 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Heshmon, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Iim, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Ithnan, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Jagur, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Kabzeel, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.d['Kedesh 2'] , 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.d['Kerioth-hezron'] , 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Kinah, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Moladah, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.d['Salt Sea'] , 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Shema, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Telem, 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.d['Ziph 2'] , 'ffffffff', 'ffffffff') # Josh 15:2
-kml.draw_node(obn.Addar, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Adithaim, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Adullam, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.d['Ain 2'] , 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Akrabbim, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Ashnah, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Azekah, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Bozkath, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Chesil, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Dilean, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Eglon, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Eltolad, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Enam, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.d['En-gannim 1'] , 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Eshtaol, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Gederah, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Gederothaim, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Hadashah, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Hezron, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Hormah, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.d['Jarmuth 1'] , 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.d['Joktheel 1'] , 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Karka, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Lachish, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Lebaoth, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Madmannah, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.d['Migdal-gad'] , 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.d['Mizpeh 2'] , 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.d['Rimmon 2'] , 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Sansannah, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.d['Shaaraim 1'] , 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Shilhim, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.d['Socoh 1'] , 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.d['Tappuah 2'] , 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.d['Zanoah 1'] , 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Zenan, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Ziklag, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.d['Zin 2'] , 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.Zorah, 'ffffffff', 'ffffffff') # Josh 15:3
-kml.draw_node(obn.d['Achzib 1'] , 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Ashan, 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Azmon, 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.d['Beth-dagon 1'] , 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.d['Brook of Egypt'] , 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Cabbon, 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Chitlish, 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Dannah, 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Ether, 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Gederoth, 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Iphtah, 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Jattir, 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Keilah, 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.d['Kiriath-sannah'] , 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Lahmam, 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.d['Libnah 1'] , 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Makkedah, 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Mareshah, 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Naamah, 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Nezib, 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.d['Shamir 1'] , 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.d['Socoh 2'] , 'ffffffff', 'ffffffff') # Josh 15:4
-kml.draw_node(obn.Anab, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Anim, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Aphekah, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Arab, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.d['Beth-anoth'] , 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.d['Beth-tappuah'] , 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.d['Beth-zur'] , 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Carmel, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.d['Dumah 1'] , 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Eltekon, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Eshan, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Eshtemoh, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.d['Gedor 1'] , 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.d['Gibeah 2'] , 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Giloh, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.d['Goshen 2'] , 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Halhul, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.d['Holon 1'] , 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Humtah, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Janim, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Jezreel, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Jokdeam, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Juttah, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Kain, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Maarath, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Maon, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.d['Timnah 2'] , 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.d['Zanoah 2'] , 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.Zior, 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.d['Ziph 1'] , 'ffffffff', 'ffffffff') # Josh 15:5
-kml.draw_node(obn.d['Beth-arabah'] , 'ffffffff', 'ffffffff') # Josh 15:6
-kml.draw_node(obn.d['Beth-hoglah'] , 'ffffffff', 'ffffffff') # Josh 15:6
-kml.draw_node(obn.d['City of Salt'] , 'ffffffff', 'ffffffff') # Josh 15:6
-kml.draw_node(obn.Engedi, 'ffffffff', 'ffffffff') # Josh 15:6
-kml.draw_node(obn.Jerusalem, 'ffffffff', 'ffffffff') # Josh 15:6
-kml.draw_node(obn.d['Kiriath-baal'] , 'ffffffff', 'ffffffff') # Josh 15:6
-kml.draw_node(obn.d['Kiriath-jearim'] , 'ffffffff', 'ffffffff') # Josh 15:6
-kml.draw_node(obn.Middin, 'ffffffff', 'ffffffff') # Josh 15:6
-kml.draw_node(obn.Nibshan, 'ffffffff', 'ffffffff') # Josh 15:6
-kml.draw_node(obn.Secacah, 'ffffffff', 'ffffffff') # Josh 15:6
-kml.draw_node(obn.Adummim, 'ffffffff', 'ffffffff') # Josh 15:7
-kml.draw_node(obn.d['Debir 2'] , 'ffffffff', 'ffffffff') # Josh 15:7
-kml.draw_node(obn.d['En-rogel'] , 'ffffffff', 'ffffffff') # Josh 15:7
-kml.draw_node(obn.d['En-shemesh'] , 'ffffffff', 'ffffffff') # Josh 15:7
-kml.draw_node(obn.d['Valley of Achor'] , 'ffffffff', 'ffffffff') # Josh 15:7
-kml.draw_node(obn.Jebusite, 'ffffffff', 'ffffffff') # Josh 15:8
-kml.draw_node(obn.d['Valley of Hinnom'] , 'ffffffff', 'ffffffff') # Josh 15:8
-kml.draw_node(obn.d['Valley of Rephaim'] , 'ffffffff', 'ffffffff') # Josh 15:8
-kml.draw_node(obn.d['Valley of the Son of Hinnom'] , 'ffffffff', 'ffffffff') # Josh 15:8
-kml.draw_node(obn.d['Mount Ephron'] , 'ffffffff', 'ffffffff') # Josh 15:9
-kml.draw_node(obn.Nephtoah, 'ffffffff', 'ffffffff') # Josh 15:9
-kml.draw_node(obn.d['Bethel 1'] , 'ffffffff', 'ffffffff') # Josh 16:1
-kml.draw_node(obn.Gezer, 'ffffffff', 'ffffffff') # Josh 16:1
-kml.draw_node(obn.d['Ataroth 2'] , 'ffffffff', 'ffffffff') # Josh 16:2
-kml.draw_node(obn.d['Luz 1'] , 'ffffffff', 'ffffffff') # Josh 16:2
-kml.draw_node(obn.d['Lower Beth-horon'] , 'ffffffff', 'ffffffff') # Josh 16:3
-kml.draw_node(obn.d['Ataroth-addar'] , 'ffffffff', 'ffffffff') # Josh 16:5
-kml.draw_node(obn.d['Upper Beth-horon'] , 'ffffffff', 'ffffffff') # Josh 16:5
-kml.draw_node(obn.d['Janoah 1'] , 'ffffffff', 'ffffffff') # Josh 16:6
-kml.draw_node(obn.Michmethath, 'ffffffff', 'ffffffff') # Josh 16:6
-kml.draw_node(obn.d['Taanath-shiloh'] , 'ffffffff', 'ffffffff') # Josh 16:6
-kml.draw_node(obn.Naarah, 'ffffffff', 'ffffffff') # Josh 16:7
-kml.draw_node(obn.d['Kanah 1'] , 'ffffffff', 'ffffffff') # Josh 16:8
-kml.draw_node(obn.d['Tappuah 1'] , 'ffffffff', 'ffffffff') # Josh 16:8
-kml.draw_node(obn.d['Beth-shean'] , 'ffffffff', 'ffffffff') # Josh 17:1
-kml.draw_node(obn.Dor, 'ffffffff', 'ffffffff') # Josh 17:1
-kml.draw_node(obn.d['En-dor'] , 'ffffffff', 'ffffffff') # Josh 17:1
-kml.draw_node(obn.Ibleam, 'ffffffff', 'ffffffff') # Josh 17:1
-kml.draw_node(obn.Megiddo, 'ffffffff', 'ffffffff') # Josh 17:1
-kml.draw_node(obn.Naphath, 'ffffffff', 'ffffffff') # Josh 17:1
-kml.draw_node(obn.Taanach, 'ffffffff', 'ffffffff') # Josh 17:1
-kml.draw_node(obn.d['Valley of Jezreel'] , 'ffffffff', 'ffffffff') # Josh 17:1
-kml.draw_node(obn.d['En-tappuah'] , 'ffffffff', 'ffffffff') # Josh 17:7
-kml.draw_node(obn.Shechem, 'ffffffff', 'ffffffff') # Josh 17:7
-kml.draw_node(obn.Arabah, 'ffffffff', 'ffffffff') # Josh 18:1
-kml.draw_node(obn.d['Beth-aven'] , 'ffffffff', 'ffffffff') # Josh 18:1
-kml.draw_node(obn.d['Beth-horon'] , 'ffffffff', 'ffffffff') # Josh 18:1
-kml.draw_node(obn.d['Ephron 1'] , 'ffffffff', 'ffffffff') # Josh 18:1
-kml.draw_node(obn.Geliloth, 'ffffffff', 'ffffffff') # Josh 18:1
-kml.draw_node(obn.Shiloh, 'ffffffff', 'ffffffff') # Josh 18:1
-kml.draw_node(obn.Avvim, 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.Beeroth, 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.d['Chephar-ammoni'] , 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.Chephirah, 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.d['Emek-keziz'] , 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.d['Geba 1'] , 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.d['Gibeah 1'] , 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.Gibeon, 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.Haeleph, 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.Irpeel, 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.Jebus, 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.d['Mizpeh 1'] , 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.Mozah, 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.Ophni, 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.d['Ophrah 1'] , 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.Parah, 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.d['Ramah 1'] , 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.Rekem, 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.Taralah, 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.Zela, 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.Zemaraim, 'ffffffff', 'ffffffff') # Josh 18:2
-kml.draw_node(obn.Anaharath, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.d['Bethlehem 2'] , 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Chesulloth, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.d['Chisloth-tabor'] , 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Dabbesheth, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Daberath, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.d['Eth-kazin'] , 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.d['Gath-hepher'] , 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Hannathon, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Hapharaim, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Idalah, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Japhia, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.d['Jezreel 2'] , 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Jokneam, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Kattath, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Mareal, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Nahalal, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Neah, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.d['Rimmon 3'] , 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Sarid, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Shimron, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Shion, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Shunem, 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.d['Valley of Iphtahel'] , 'ffffffff', 'ffffffff') # Josh 19:1
-kml.draw_node(obn.Achshaph, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.d['Achzib 2'] , 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Allammelech, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Amad, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Beten, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.d['Beth-dagon 2'] , 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.d['Beth-emek'] , 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.d['Beth-pazzez'] , 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.d['Beth-shemesh 2'] , 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.d['Cabul 1'] , 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Ebez, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Ebron, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.d['En-gannim 2'] , 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.d['En-haddah'] , 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Hali, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Hammon, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Helkath, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Hosah, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.d['Kanah 2'] , 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Kishion, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Mahalab, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Mishal, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Neiel, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Rabbith, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.d['Ramah 2'] , 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.d['Rehob 2'] , 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Remeth, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Shahazumah, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Sheba, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.d['Shihor-libnath'] , 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.d['Sidon the Great'] , 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.d['Tabor 1'] , 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Tyre, 'ffffffff', 'ffffffff') # Josh 19:2
-kml.draw_node(obn.Adamah, 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.d['Adami-nekeb'] , 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.d['Aznoth-tabor'] , 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.Balah, 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.d['Beth-anath'] , 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.d['Beth-shemesh 3'] , 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.d['Chinnereth 2'] , 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.d['En-hazor'] , 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.Hammath, 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.d['Hazor 1'] , 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.Heleph, 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.Horem, 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.Hukkok, 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.d['Jabneel 2'] , 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.d['Kedesh 1'] , 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.Lakkum, 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.d['Migdal-el'] , 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.Rakkath, 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.d['Ramah 3'] , 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.d['Rehob 3'] , 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.Ummah, 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.Yiron, 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.Zaanannim, 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.Zer, 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.Ziddim, 'ffffffff', 'ffffffff') # Josh 19:3
-kml.draw_node(obn.Aijalon, 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.d['Baalath 1'] , 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.d['Bene-berak'] , 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.Bethul, 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.Dan, 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.Elon, 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.Eltekeh, 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.d['Gath-rimmon 1'] , 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.Gibbethon, 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.d['Ir-shemesh'] , 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.Ithlah, 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.Jehud, 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.Joppa, 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.Leshem, 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.d['Me-jarkon'] , 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.Rakkon, 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.Shaalabbin, 'ffffffff', 'ffffffff') # Josh 19:4
-kml.draw_node(obn.d['Beth-marcaboth'] , 'ffffffff', 'ffffffff') # Josh 19:5
-kml.draw_node(obn.d['Hazar-susah'] , 'ffffffff', 'ffffffff') # Josh 19:5
-kml.draw_node(obn.d['Timnath-serah'] , 'ffffffff', 'ffffffff') # Josh 19:5
-kml.draw_node(obn.d['Beth-lebaoth'] , 'ffffffff', 'ffffffff') # Josh 19:6
-kml.draw_node(obn.Sharuhen, 'ffffffff', 'ffffffff') # Josh 19:6
-kml.draw_node(obn.d['Baalath-beer'] , 'ffffffff', 'ffffffff') # Josh 19:8
+# alle Bezirke der Philister und das ganze Geschuri;
+kml.draw_node(obn.Ashdod  , 'ff000000', 'ff000000') # Josh 13:3
+kml.draw_node(obn.Ashkelon, 'ff000000', 'ff000000') # Josh 13:3
+kml.draw_node(obn.Egypt   , 'ff000000', 'ff000000') # Josh 13:3
+kml.draw_node(obn.Ekron   , 'ff000000', 'ff000000') # Josh 13:3
+kml.draw_node(obn.Gath    , 'ff000000', 'ff000000') # Josh 13:3
+kml.draw_node(obn.Gaza    , 'ff000000', 'ff000000') # Josh 13:3
+
+kml.draw_node(obn.Shihor  , 'ffff6666', 'ffff0000') # Josh 13:3
+
+# kml.draw_node(obn.d['Aphek 1'] , 'ffffffff', 'ffffffff') # Josh 13:4
+# kml.draw_node(obn.Mearah, 'ffffffff', 'ffffffff') # Josh 13:4
+# kml.draw_node(obn.d['Baal-gad'] , 'ffffffff', 'ffffffff') # Josh 13:5
+# kml.draw_node(obn.Lebanon, 'ffffffff', 'ffffffff') # Josh 13:5
+# kml.draw_node(obn.d['Lebo-hamath'] , 'ffffffff', 'ffffffff') # Josh 13:5
+# kml.draw_node(obn.d['Mount Hermon'] , 'ffffffff', 'ffffffff') # Josh 13:5
+# kml.draw_node(obn.d['Misrephoth-maim'] , 'ffffffff', 'ffffffff') # Josh 13:6
+# kml.draw_node(obn.Jordan, 'ffffffff', 'ffffffff') # Josh 13:8
+# kml.draw_node(obn.d['Aroer 1'] , 'ffffffff', 'ffffffff') # Josh 13:9
+# kml.draw_node(obn.d['Dibon 1'] , 'ffffffff', 'ffffffff') # Josh 13:9
+# kml.draw_node(obn.Medeba, 'ffffffff', 'ffffffff') # Josh 13:9
+# kml.draw_node(obn.d['Valley of the Arnon'] , 'ffffffff', 'ffffffff') # Josh 13:9
+# kml.draw_node(obn.Heshbon, 'ffffffff', 'ffffffff') # Josh 13:10
+# kml.draw_node(obn.Bashan, 'ffffffff', 'ffffffff') # Josh 13:11
+# kml.draw_node(obn.Gilead, 'ffffffff', 'ffffffff') # Josh 13:11
+# kml.draw_node(obn.Salecah, 'ffffffff', 'ffffffff') # Josh 13:11
+# kml.draw_node(obn.Ashtaroth, 'ffffffff', 'ffffffff') # Josh 13:12
+# kml.draw_node(obn.Edrei, 'ffffffff', 'ffffffff') # Josh 13:12
+# kml.draw_node(obn.Geshur, 'ffffffff', 'ffffffff') # Josh 13:13
+# kml.draw_node(obn.Maacath, 'ffffffff', 'ffffffff') # Josh 13:13
+# kml.draw_node(obn.d['Bamoth-baal'] , 'ffffffff', 'ffffffff') # Josh 13:17
+# kml.draw_node(obn.d['Beth-baal-meon'] , 'ffffffff', 'ffffffff') # Josh 13:17
+# kml.draw_node(obn.Jahaz, 'ffffffff', 'ffffffff') # Josh 13:18
+# kml.draw_node(obn.Kedemoth, 'ffffffff', 'ffffffff') # Josh 13:18
+# kml.draw_node(obn.Mephaath, 'ffffffff', 'ffffffff') # Josh 13:18
+# kml.draw_node(obn.d['Kiriathaim 1'] , 'ffffffff', 'ffffffff') # Josh 13:19
+# kml.draw_node(obn.Sibmah, 'ffffffff', 'ffffffff') # Josh 13:19
+# kml.draw_node(obn.d['Zereth-shahar'] , 'ffffffff', 'ffffffff') # Josh 13:19
+# kml.draw_node(obn.d['Beth-jeshimoth'] , 'ffffffff', 'ffffffff') # Josh 13:20
+# kml.draw_node(obn.d['Beth-peor'] , 'ffffffff', 'ffffffff') # Josh 13:20
+# kml.draw_node(obn.Pisgah, 'ffffffff', 'ffffffff') # Josh 13:20
+# kml.draw_node(obn.Midian, 'ffffffff', 'ffffffff') # Josh 13:21
+# kml.draw_node(obn.d['Aroer 2'] , 'ffffffff', 'ffffffff') # Josh 13:25
+# kml.draw_node(obn.Jazer, 'ffffffff', 'ffffffff') # Josh 13:25
+# kml.draw_node(obn.Rabbah, 'ffffffff', 'ffffffff') # Josh 13:25
+# kml.draw_node(obn.Betonim, 'ffffffff', 'ffffffff') # Josh 13:26
+# kml.draw_node(obn.d['Debir 3'] , 'ffffffff', 'ffffffff') # Josh 13:26
+# kml.draw_node(obn.Mahanaim, 'ffffffff', 'ffffffff') # Josh 13:26
+# kml.draw_node(obn.d['Ramath-mizpeh'] , 'ffffffff', 'ffffffff') # Josh 13:26
+# kml.draw_node(obn.d['Beth-haram'] , 'ffffffff', 'ffffffff') # Josh 13:27
+# kml.draw_node(obn.d['Beth-nimrah'] , 'ffffffff', 'ffffffff') # Josh 13:27
+# kml.draw_node(obn.d['Sea of Chinnereth'] , 'ffffffff', 'ffffffff') # Josh 13:27
+# kml.draw_node(obn.d['Succoth 1'] , 'ffffffff', 'ffffffff') # Josh 13:27
+# kml.draw_node(obn.Zaphon, 'ffffffff', 'ffffffff') # Josh 13:27
+# kml.draw_node(obn.Jair, 'ffffffff', 'ffffffff') # Josh 13:30
+# kml.draw_node(obn.Jericho, 'ffffffff', 'ffffffff') # Josh 13:32
+# kml.draw_node(obn.Moab, 'ffffffff', 'ffffffff') # Josh 13:32
+# kml.draw_node(obn.Canaan, 'ffffffff', 'ffffffff') # Josh 14:1
+# kml.draw_node(obn.d['Gilgal 1'] , 'ffffffff', 'ffffffff') # Josh 14:6
+# kml.draw_node(obn.d['Kadesh-barnea'] , 'ffffffff', 'ffffffff') # Josh 14:6
+# kml.draw_node(obn.Hebron, 'ffffffff', 'ffffffff') # Josh 14:13
+# kml.draw_node(obn.d['Kiriath-arba'] , 'ffffffff', 'ffffffff') # Josh 14:15
+# kml.draw_node(obn.Edom, 'ffffffff', 'ffffffff') # Josh 15:1
+# kml.draw_node(obn.d['Zin 1'] , 'ffffffff', 'ffffffff') # Josh 15:1
+# kml.draw_node(obn.d['Salt Sea'] , 'ffffffff', 'ffffffff') # Josh 15:2
+# kml.draw_node(obn.Addar, 'ffffffff', 'ffffffff') # Josh 15:3
+# kml.draw_node(obn.Akrabbim, 'ffffffff', 'ffffffff') # Josh 15:3
+# kml.draw_node(obn.Hezron, 'ffffffff', 'ffffffff') # Josh 15:3
+# kml.draw_node(obn.Karka, 'ffffffff', 'ffffffff') # Josh 15:3
+# kml.draw_node(obn.d['Zin 2'] , 'ffffffff', 'ffffffff') # Josh 15:3
+# kml.draw_node(obn.Azmon, 'ffffffff', 'ffffffff') # Josh 15:4
+# kml.draw_node(obn.d['Brook of Egypt'] , 'ffffffff', 'ffffffff') # Josh 15:4
+# kml.draw_node(obn.d['Beth-arabah'] , 'ffffffff', 'ffffffff') # Josh 15:6
+# kml.draw_node(obn.d['Beth-hoglah'] , 'ffffffff', 'ffffffff') # Josh 15:6
+# kml.draw_node(obn.Adummim, 'ffffffff', 'ffffffff') # Josh 15:7
+# kml.draw_node(obn.d['Debir 2'] , 'ffffffff', 'ffffffff') # Josh 15:7
+# kml.draw_node(obn.d['En-rogel'] , 'ffffffff', 'ffffffff') # Josh 15:7
+# kml.draw_node(obn.d['En-shemesh'] , 'ffffffff', 'ffffffff') # Josh 15:7
+# kml.draw_node(obn.d['Valley of Achor'] , 'ffffffff', 'ffffffff') # Josh 15:7
+# kml.draw_node(obn.Jebusite, 'ffffffff', 'ffffffff') # Josh 15:8
+# kml.draw_node(obn.Jerusalem, 'ffffffff', 'ffffffff') # Josh 15:8
+# kml.draw_node(obn.d['Valley of Hinnom'] , 'ffffffff', 'ffffffff') # Josh 15:8
+# kml.draw_node(obn.d['Valley of Rephaim'] , 'ffffffff', 'ffffffff') # Josh 15:8
+# kml.draw_node(obn.d['Valley of the Son of Hinnom'] , 'ffffffff', 'ffffffff') # Josh 15:8
+# kml.draw_node(obn.d['Baalah 2'] , 'ffffffff', 'ffffffff') # Josh 15:9
+# kml.draw_node(obn.d['Kiriath-jearim'] , 'ffffffff', 'ffffffff') # Josh 15:9
+# kml.draw_node(obn.d['Mount Ephron'] , 'ffffffff', 'ffffffff') # Josh 15:9
+# kml.draw_node(obn.Nephtoah, 'ffffffff', 'ffffffff') # Josh 15:9
+# kml.draw_node(obn.d['Beth-shemesh 1'] , 'ffffffff', 'ffffffff') # Josh 15:10
+# kml.draw_node(obn.Chesalon, 'ffffffff', 'ffffffff') # Josh 15:10
+# kml.draw_node(obn.d['Mount Jearim'] , 'ffffffff', 'ffffffff') # Josh 15:10
+# kml.draw_node(obn.d['Mount Seir 2'] , 'ffffffff', 'ffffffff') # Josh 15:10
+# kml.draw_node(obn.d['Timnah 1'] , 'ffffffff', 'ffffffff') # Josh 15:10
+# kml.draw_node(obn.d['Jabneel 1'] , 'ffffffff', 'ffffffff') # Josh 15:11
+# kml.draw_node(obn.d['Mount Baalah'] , 'ffffffff', 'ffffffff') # Josh 15:11
+# kml.draw_node(obn.Shikkeron, 'ffffffff', 'ffffffff') # Josh 15:11
+# kml.draw_node(obn.d['Great Sea'] , 'ffffffff', 'ffffffff') # Josh 15:12
+# kml.draw_node(obn.d['Debir 1'] , 'ffffffff', 'ffffffff') # Josh 15:15
+# kml.draw_node(obn.d['Kiriath-sepher'] , 'ffffffff', 'ffffffff') # Josh 15:15
+# kml.draw_node(obn.Negeb, 'ffffffff', 'ffffffff') # Josh 15:19
+# kml.draw_node(obn.d['Eder 2'] , 'ffffffff', 'ffffffff') # Josh 15:21
+# kml.draw_node(obn.Jagur, 'ffffffff', 'ffffffff') # Josh 15:21
+# kml.draw_node(obn.Kabzeel, 'ffffffff', 'ffffffff') # Josh 15:21
+# kml.draw_node(obn.Adadah, 'ffffffff', 'ffffffff') # Josh 15:22
+# kml.draw_node(obn.Dimonah, 'ffffffff', 'ffffffff') # Josh 15:22
+# kml.draw_node(obn.Kinah, 'ffffffff', 'ffffffff') # Josh 15:22
+# kml.draw_node(obn.d['Hazor 2'] , 'ffffffff', 'ffffffff') # Josh 15:23
+# kml.draw_node(obn.Ithnan, 'ffffffff', 'ffffffff') # Josh 15:23
+# kml.draw_node(obn.d['Kedesh 2'] , 'ffffffff', 'ffffffff') # Josh 15:23
+# kml.draw_node(obn.Bealoth, 'ffffffff', 'ffffffff') # Josh 15:24
+# kml.draw_node(obn.Telem, 'ffffffff', 'ffffffff') # Josh 15:24
+# kml.draw_node(obn.d['Ziph 2'] , 'ffffffff', 'ffffffff') # Josh 15:24
+# kml.draw_node(obn.d['Hazor 3'] , 'ffffffff', 'ffffffff') # Josh 15:25
+# kml.draw_node(obn.d['Hazor-hadattah'] , 'ffffffff', 'ffffffff') # Josh 15:25
+# kml.draw_node(obn.d['Kerioth-hezron'] , 'ffffffff', 'ffffffff') # Josh 15:25
+# kml.draw_node(obn.Amam, 'ffffffff', 'ffffffff') # Josh 15:26
+# kml.draw_node(obn.Moladah, 'ffffffff', 'ffffffff') # Josh 15:26
+# kml.draw_node(obn.Shema, 'ffffffff', 'ffffffff') # Josh 15:26
+# kml.draw_node(obn.d['Beth-pelet'] , 'ffffffff', 'ffffffff') # Josh 15:27
+# kml.draw_node(obn.d['Hazar-gaddah'] , 'ffffffff', 'ffffffff') # Josh 15:27
+# kml.draw_node(obn.Heshmon, 'ffffffff', 'ffffffff') # Josh 15:27
+# kml.draw_node(obn.Beersheba, 'ffffffff', 'ffffffff') # Josh 15:28
+# kml.draw_node(obn.Biziothiah, 'ffffffff', 'ffffffff') # Josh 15:28
+# kml.draw_node(obn.d['Hazar-shual'] , 'ffffffff', 'ffffffff') # Josh 15:28
+# kml.draw_node(obn.d['Baalah 1'] , 'ffffffff', 'ffffffff') # Josh 15:29
+# kml.draw_node(obn.Ezem, 'ffffffff', 'ffffffff') # Josh 15:29
+# kml.draw_node(obn.Iim, 'ffffffff', 'ffffffff') # Josh 15:29
+# kml.draw_node(obn.Chesil, 'ffffffff', 'ffffffff') # Josh 15:30
+# kml.draw_node(obn.Eltolad, 'ffffffff', 'ffffffff') # Josh 15:30
+# kml.draw_node(obn.Hormah, 'ffffffff', 'ffffffff') # Josh 15:30
+# kml.draw_node(obn.Madmannah, 'ffffffff', 'ffffffff') # Josh 15:31
+# kml.draw_node(obn.Sansannah, 'ffffffff', 'ffffffff') # Josh 15:31
+# kml.draw_node(obn.Ziklag, 'ffffffff', 'ffffffff') # Josh 15:31
+# kml.draw_node(obn.d['Ain 2'] , 'ffffffff', 'ffffffff') # Josh 15:32
+# kml.draw_node(obn.Lebaoth, 'ffffffff', 'ffffffff') # Josh 15:32
+# kml.draw_node(obn.d['Rimmon 2'] , 'ffffffff', 'ffffffff') # Josh 15:32
+# kml.draw_node(obn.Shilhim, 'ffffffff', 'ffffffff') # Josh 15:32
+# kml.draw_node(obn.Ashnah, 'ffffffff', 'ffffffff') # Josh 15:33
+# kml.draw_node(obn.Eshtaol, 'ffffffff', 'ffffffff') # Josh 15:33
+# kml.draw_node(obn.Zorah, 'ffffffff', 'ffffffff') # Josh 15:33
+# kml.draw_node(obn.Enam, 'ffffffff', 'ffffffff') # Josh 15:34
+# kml.draw_node(obn.d['En-gannim 1'] , 'ffffffff', 'ffffffff') # Josh 15:34
+# kml.draw_node(obn.d['Tappuah 2'] , 'ffffffff', 'ffffffff') # Josh 15:34
+# kml.draw_node(obn.d['Zanoah 1'] , 'ffffffff', 'ffffffff') # Josh 15:34
+# kml.draw_node(obn.Adullam, 'ffffffff', 'ffffffff') # Josh 15:35
+# kml.draw_node(obn.Azekah, 'ffffffff', 'ffffffff') # Josh 15:35
+# kml.draw_node(obn.d['Jarmuth 1'] , 'ffffffff', 'ffffffff') # Josh 15:35
+# kml.draw_node(obn.d['Socoh 1'] , 'ffffffff', 'ffffffff') # Josh 15:35
+# kml.draw_node(obn.Adithaim, 'ffffffff', 'ffffffff') # Josh 15:36
+# kml.draw_node(obn.Gederah, 'ffffffff', 'ffffffff') # Josh 15:36
+# kml.draw_node(obn.Gederothaim, 'ffffffff', 'ffffffff') # Josh 15:36
+# kml.draw_node(obn.d['Shaaraim 1'] , 'ffffffff', 'ffffffff') # Josh 15:36
+# kml.draw_node(obn.Hadashah, 'ffffffff', 'ffffffff') # Josh 15:37
+# kml.draw_node(obn.d['Migdal-gad'] , 'ffffffff', 'ffffffff') # Josh 15:37
+# kml.draw_node(obn.Zenan, 'ffffffff', 'ffffffff') # Josh 15:37
+# kml.draw_node(obn.Dilean, 'ffffffff', 'ffffffff') # Josh 15:38
+# kml.draw_node(obn.d['Joktheel 1'] , 'ffffffff', 'ffffffff') # Josh 15:38
+# kml.draw_node(obn.d['Mizpeh 2'] , 'ffffffff', 'ffffffff') # Josh 15:38
+# kml.draw_node(obn.Bozkath, 'ffffffff', 'ffffffff') # Josh 15:39
+# kml.draw_node(obn.Eglon, 'ffffffff', 'ffffffff') # Josh 15:39
+# kml.draw_node(obn.Lachish, 'ffffffff', 'ffffffff') # Josh 15:39
+# kml.draw_node(obn.Cabbon, 'ffffffff', 'ffffffff') # Josh 15:40
+# kml.draw_node(obn.Chitlish, 'ffffffff', 'ffffffff') # Josh 15:40
+# kml.draw_node(obn.Lahmam, 'ffffffff', 'ffffffff') # Josh 15:40
+# kml.draw_node(obn.d['Beth-dagon 1'] , 'ffffffff', 'ffffffff') # Josh 15:41
+# kml.draw_node(obn.Gederoth, 'ffffffff', 'ffffffff') # Josh 15:41
+# kml.draw_node(obn.Makkedah, 'ffffffff', 'ffffffff') # Josh 15:41
+# kml.draw_node(obn.Naamah, 'ffffffff', 'ffffffff') # Josh 15:41
+# kml.draw_node(obn.Ashan, 'ffffffff', 'ffffffff') # Josh 15:42
+# kml.draw_node(obn.Ether, 'ffffffff', 'ffffffff') # Josh 15:42
+# kml.draw_node(obn.d['Libnah 1'] , 'ffffffff', 'ffffffff') # Josh 15:42
+# kml.draw_node(obn.Iphtah, 'ffffffff', 'ffffffff') # Josh 15:43
+# kml.draw_node(obn.Nezib, 'ffffffff', 'ffffffff') # Josh 15:43
+# kml.draw_node(obn.d['Achzib 1'] , 'ffffffff', 'ffffffff') # Josh 15:44
+# kml.draw_node(obn.Keilah, 'ffffffff', 'ffffffff') # Josh 15:44
+# kml.draw_node(obn.Mareshah, 'ffffffff', 'ffffffff') # Josh 15:44
+# kml.draw_node(obn.Jattir, 'ffffffff', 'ffffffff') # Josh 15:48
+# kml.draw_node(obn.d['Shamir 1'] , 'ffffffff', 'ffffffff') # Josh 15:48
+# kml.draw_node(obn.d['Socoh 2'] , 'ffffffff', 'ffffffff') # Josh 15:48
+# kml.draw_node(obn.Dannah, 'ffffffff', 'ffffffff') # Josh 15:49
+# kml.draw_node(obn.d['Kiriath-sannah'] , 'ffffffff', 'ffffffff') # Josh 15:49
+# kml.draw_node(obn.Anab, 'ffffffff', 'ffffffff') # Josh 15:50
+# kml.draw_node(obn.Anim, 'ffffffff', 'ffffffff') # Josh 15:50
+# kml.draw_node(obn.Eshtemoh, 'ffffffff', 'ffffffff') # Josh 15:50
+# kml.draw_node(obn.Giloh, 'ffffffff', 'ffffffff') # Josh 15:51
+# kml.draw_node(obn.d['Goshen 2'] , 'ffffffff', 'ffffffff') # Josh 15:51
+# kml.draw_node(obn.d['Holon 1'] , 'ffffffff', 'ffffffff') # Josh 15:51
+# kml.draw_node(obn.Arab, 'ffffffff', 'ffffffff') # Josh 15:52
+# kml.draw_node(obn.d['Dumah 1'] , 'ffffffff', 'ffffffff') # Josh 15:52
+# kml.draw_node(obn.Eshan, 'ffffffff', 'ffffffff') # Josh 15:52
+# kml.draw_node(obn.Aphekah, 'ffffffff', 'ffffffff') # Josh 15:53
+# kml.draw_node(obn.d['Beth-tappuah'] , 'ffffffff', 'ffffffff') # Josh 15:53
+# kml.draw_node(obn.Janim, 'ffffffff', 'ffffffff') # Josh 15:53
+# kml.draw_node(obn.Humtah, 'ffffffff', 'ffffffff') # Josh 15:54
+# kml.draw_node(obn.Zior, 'ffffffff', 'ffffffff') # Josh 15:54
+# kml.draw_node(obn.Carmel, 'ffffffff', 'ffffffff') # Josh 15:55
+# kml.draw_node(obn.Juttah, 'ffffffff', 'ffffffff') # Josh 15:55
+# kml.draw_node(obn.Maon, 'ffffffff', 'ffffffff') # Josh 15:55
+# kml.draw_node(obn.d['Ziph 1'] , 'ffffffff', 'ffffffff') # Josh 15:55
+# kml.draw_node(obn.Jezreel, 'ffffffff', 'ffffffff') # Josh 15:56
+# kml.draw_node(obn.Jokdeam, 'ffffffff', 'ffffffff') # Josh 15:56
+# kml.draw_node(obn.d['Zanoah 2'] , 'ffffffff', 'ffffffff') # Josh 15:56
+# kml.draw_node(obn.d['Gibeah 2'] , 'ffffffff', 'ffffffff') # Josh 15:57
+# kml.draw_node(obn.Kain, 'ffffffff', 'ffffffff') # Josh 15:57
+# kml.draw_node(obn.d['Timnah 2'] , 'ffffffff', 'ffffffff') # Josh 15:57
+# kml.draw_node(obn.d['Beth-zur'] , 'ffffffff', 'ffffffff') # Josh 15:58
+# kml.draw_node(obn.d['Gedor 1'] , 'ffffffff', 'ffffffff') # Josh 15:58
+# kml.draw_node(obn.Halhul, 'ffffffff', 'ffffffff') # Josh 15:58
+# kml.draw_node(obn.d['Beth-anoth'] , 'ffffffff', 'ffffffff') # Josh 15:59
+# kml.draw_node(obn.Eltekon, 'ffffffff', 'ffffffff') # Josh 15:59
+# kml.draw_node(obn.Maarath, 'ffffffff', 'ffffffff') # Josh 15:59
+# kml.draw_node(obn.d['Kiriath-baal'] , 'ffffffff', 'ffffffff') # Josh 15:60
+# kml.draw_node(obn.Middin, 'ffffffff', 'ffffffff') # Josh 15:61
+# kml.draw_node(obn.Secacah, 'ffffffff', 'ffffffff') # Josh 15:61
+# kml.draw_node(obn.d['City of Salt'] , 'ffffffff', 'ffffffff') # Josh 15:62
+# kml.draw_node(obn.Engedi, 'ffffffff', 'ffffffff') # Josh 15:62
+# kml.draw_node(obn.Nibshan, 'ffffffff', 'ffffffff') # Josh 15:62
+# kml.draw_node(obn.d['Bethel 1'] , 'ffffffff', 'ffffffff') # Josh 16:1
+# kml.draw_node(obn.d['Ataroth 2'] , 'ffffffff', 'ffffffff') # Josh 16:2
+# kml.draw_node(obn.d['Luz 1'] , 'ffffffff', 'ffffffff') # Josh 16:2
+# kml.draw_node(obn.Gezer, 'ffffffff', 'ffffffff') # Josh 16:3
+# kml.draw_node(obn.d['Lower Beth-horon'] , 'ffffffff', 'ffffffff') # Josh 16:3
+# kml.draw_node(obn.d['Ataroth-addar'] , 'ffffffff', 'ffffffff') # Josh 16:5
+# kml.draw_node(obn.d['Upper Beth-horon'] , 'ffffffff', 'ffffffff') # Josh 16:5
+# kml.draw_node(obn.d['Janoah 1'] , 'ffffffff', 'ffffffff') # Josh 16:6
+# kml.draw_node(obn.Michmethath, 'ffffffff', 'ffffffff') # Josh 16:6
+# kml.draw_node(obn.d['Taanath-shiloh'] , 'ffffffff', 'ffffffff') # Josh 16:6
+# kml.draw_node(obn.Naarah, 'ffffffff', 'ffffffff') # Josh 16:7
+# kml.draw_node(obn.d['Kanah 1'] , 'ffffffff', 'ffffffff') # Josh 16:8
+# kml.draw_node(obn.d['Tappuah 1'] , 'ffffffff', 'ffffffff') # Josh 16:8
+# kml.draw_node(obn.d['En-tappuah'] , 'ffffffff', 'ffffffff') # Josh 17:7
+# kml.draw_node(obn.Shechem, 'ffffffff', 'ffffffff') # Josh 17:7
+# kml.draw_node(obn.d['Beth-shean'] , 'ffffffff', 'ffffffff') # Josh 17:11
+# kml.draw_node(obn.Dor, 'ffffffff', 'ffffffff') # Josh 17:11
+# kml.draw_node(obn.d['En-dor'] , 'ffffffff', 'ffffffff') # Josh 17:11
+# kml.draw_node(obn.Ibleam, 'ffffffff', 'ffffffff') # Josh 17:11
+# kml.draw_node(obn.Megiddo, 'ffffffff', 'ffffffff') # Josh 17:11
+# kml.draw_node(obn.Naphath, 'ffffffff', 'ffffffff') # Josh 17:11
+# kml.draw_node(obn.Taanach, 'ffffffff', 'ffffffff') # Josh 17:11
+# kml.draw_node(obn.d['Valley of Jezreel'] , 'ffffffff', 'ffffffff') # Josh 17:16
+# kml.draw_node(obn.Shiloh, 'ffffffff', 'ffffffff') # Josh 18:1
+# kml.draw_node(obn.d['Beth-aven'] , 'ffffffff', 'ffffffff') # Josh 18:12
+# kml.draw_node(obn.d['Beth-horon'] , 'ffffffff', 'ffffffff') # Josh 18:14
+# kml.draw_node(obn.d['Ephron 1'] , 'ffffffff', 'ffffffff') # Josh 18:15
+# kml.draw_node(obn.Geliloth, 'ffffffff', 'ffffffff') # Josh 18:17
+# kml.draw_node(obn.Arabah, 'ffffffff', 'ffffffff') # Josh 18:18
+# kml.draw_node(obn.d['Emek-keziz'] , 'ffffffff', 'ffffffff') # Josh 18:21
+# kml.draw_node(obn.Zemaraim, 'ffffffff', 'ffffffff') # Josh 18:22
+# kml.draw_node(obn.Avvim, 'ffffffff', 'ffffffff') # Josh 18:23
+# kml.draw_node(obn.d['Ophrah 1'] , 'ffffffff', 'ffffffff') # Josh 18:23
+# kml.draw_node(obn.Parah, 'ffffffff', 'ffffffff') # Josh 18:23
+# kml.draw_node(obn.d['Chephar-ammoni'] , 'ffffffff', 'ffffffff') # Josh 18:24
+# kml.draw_node(obn.d['Geba 1'] , 'ffffffff', 'ffffffff') # Josh 18:24
+# kml.draw_node(obn.Ophni, 'ffffffff', 'ffffffff') # Josh 18:24
+# kml.draw_node(obn.Beeroth, 'ffffffff', 'ffffffff') # Josh 18:25
+# kml.draw_node(obn.Gibeon, 'ffffffff', 'ffffffff') # Josh 18:25
+# kml.draw_node(obn.d['Ramah 1'] , 'ffffffff', 'ffffffff') # Josh 18:25
+# kml.draw_node(obn.Chephirah, 'ffffffff', 'ffffffff') # Josh 18:26
+# kml.draw_node(obn.d['Mizpeh 1'] , 'ffffffff', 'ffffffff') # Josh 18:26
+# kml.draw_node(obn.Mozah, 'ffffffff', 'ffffffff') # Josh 18:26
+# kml.draw_node(obn.Irpeel, 'ffffffff', 'ffffffff') # Josh 18:27
+# kml.draw_node(obn.Rekem, 'ffffffff', 'ffffffff') # Josh 18:27
+# kml.draw_node(obn.Taralah, 'ffffffff', 'ffffffff') # Josh 18:27
+# kml.draw_node(obn.d['Gibeah 1'] , 'ffffffff', 'ffffffff') # Josh 18:28
+# kml.draw_node(obn.Haeleph, 'ffffffff', 'ffffffff') # Josh 18:28
+# kml.draw_node(obn.Jebus, 'ffffffff', 'ffffffff') # Josh 18:28
+# kml.draw_node(obn.Zela, 'ffffffff', 'ffffffff') # Josh 18:28
+# kml.draw_node(obn.Sheba, 'ffffffff', 'ffffffff') # Josh 19:2
+# kml.draw_node(obn.Balah, 'ffffffff', 'ffffffff') # Josh 19:3
+# kml.draw_node(obn.Bethul, 'ffffffff', 'ffffffff') # Josh 19:4
+# kml.draw_node(obn.d['Beth-marcaboth'] , 'ffffffff', 'ffffffff') # Josh 19:5
+# kml.draw_node(obn.d['Hazar-susah'] , 'ffffffff', 'ffffffff') # Josh 19:5
+# kml.draw_node(obn.d['Beth-lebaoth'] , 'ffffffff', 'ffffffff') # Josh 19:6
+# kml.draw_node(obn.Sharuhen, 'ffffffff', 'ffffffff') # Josh 19:6
+# kml.draw_node(obn.d['Baalath-beer'] , 'ffffffff', 'ffffffff') # Josh 19:8
+# kml.draw_node(obn.Sarid, 'ffffffff', 'ffffffff') # Josh 19:10
+# kml.draw_node(obn.Dabbesheth, 'ffffffff', 'ffffffff') # Josh 19:11
+# kml.draw_node(obn.Jokneam, 'ffffffff', 'ffffffff') # Josh 19:11
+# kml.draw_node(obn.Mareal, 'ffffffff', 'ffffffff') # Josh 19:11
+# kml.draw_node(obn.d['Chisloth-tabor'] , 'ffffffff', 'ffffffff') # Josh 19:12
+# kml.draw_node(obn.Daberath, 'ffffffff', 'ffffffff') # Josh 19:12
+# kml.draw_node(obn.Japhia, 'ffffffff', 'ffffffff') # Josh 19:12
+# kml.draw_node(obn.d['Eth-kazin'] , 'ffffffff', 'ffffffff') # Josh 19:13
+# kml.draw_node(obn.d['Gath-hepher'] , 'ffffffff', 'ffffffff') # Josh 19:13
+# kml.draw_node(obn.Neah, 'ffffffff', 'ffffffff') # Josh 19:13
+# kml.draw_node(obn.d['Rimmon 3'] , 'ffffffff', 'ffffffff') # Josh 19:13
+# kml.draw_node(obn.Hannathon, 'ffffffff', 'ffffffff') # Josh 19:14
+# kml.draw_node(obn.d['Valley of Iphtahel'] , 'ffffffff', 'ffffffff') # Josh 19:14
+# kml.draw_node(obn.d['Bethlehem 2'] , 'ffffffff', 'ffffffff') # Josh 19:15
+# kml.draw_node(obn.Idalah, 'ffffffff', 'ffffffff') # Josh 19:15
+# kml.draw_node(obn.Kattath, 'ffffffff', 'ffffffff') # Josh 19:15
+# kml.draw_node(obn.Nahalal, 'ffffffff', 'ffffffff') # Josh 19:15
+# kml.draw_node(obn.Shimron, 'ffffffff', 'ffffffff') # Josh 19:15
+# kml.draw_node(obn.Chesulloth, 'ffffffff', 'ffffffff') # Josh 19:18
+# kml.draw_node(obn.d['Jezreel 2'] , 'ffffffff', 'ffffffff') # Josh 19:18
+# kml.draw_node(obn.Shunem, 'ffffffff', 'ffffffff') # Josh 19:18
+# kml.draw_node(obn.Anaharath, 'ffffffff', 'ffffffff') # Josh 19:19
+# kml.draw_node(obn.Hapharaim, 'ffffffff', 'ffffffff') # Josh 19:19
+# kml.draw_node(obn.Shion, 'ffffffff', 'ffffffff') # Josh 19:19
+# kml.draw_node(obn.Ebez, 'ffffffff', 'ffffffff') # Josh 19:20
+# kml.draw_node(obn.Kishion, 'ffffffff', 'ffffffff') # Josh 19:20
+# kml.draw_node(obn.Rabbith, 'ffffffff', 'ffffffff') # Josh 19:20
+# kml.draw_node(obn.d['Beth-pazzez'] , 'ffffffff', 'ffffffff') # Josh 19:21
+# kml.draw_node(obn.d['En-gannim 2'] , 'ffffffff', 'ffffffff') # Josh 19:21
+# kml.draw_node(obn.d['En-haddah'] , 'ffffffff', 'ffffffff') # Josh 19:21
+# kml.draw_node(obn.Remeth, 'ffffffff', 'ffffffff') # Josh 19:21
+# kml.draw_node(obn.d['Beth-shemesh 2'] , 'ffffffff', 'ffffffff') # Josh 19:22
+# kml.draw_node(obn.Shahazumah, 'ffffffff', 'ffffffff') # Josh 19:22
+# kml.draw_node(obn.d['Tabor 1'] , 'ffffffff', 'ffffffff') # Josh 19:22
+# kml.draw_node(obn.Achshaph, 'ffffffff', 'ffffffff') # Josh 19:25
+# kml.draw_node(obn.Beten, 'ffffffff', 'ffffffff') # Josh 19:25
+# kml.draw_node(obn.Hali, 'ffffffff', 'ffffffff') # Josh 19:25
+# kml.draw_node(obn.Helkath, 'ffffffff', 'ffffffff') # Josh 19:25
+# kml.draw_node(obn.Allammelech, 'ffffffff', 'ffffffff') # Josh 19:26
+# kml.draw_node(obn.Amad, 'ffffffff', 'ffffffff') # Josh 19:26
+# kml.draw_node(obn.Mishal, 'ffffffff', 'ffffffff') # Josh 19:26
+# kml.draw_node(obn.d['Shihor-libnath'] , 'ffffffff', 'ffffffff') # Josh 19:26
+# kml.draw_node(obn.d['Beth-dagon 2'] , 'ffffffff', 'ffffffff') # Josh 19:27
+# kml.draw_node(obn.d['Beth-emek'] , 'ffffffff', 'ffffffff') # Josh 19:27
+# kml.draw_node(obn.d['Cabul 1'] , 'ffffffff', 'ffffffff') # Josh 19:27
+# kml.draw_node(obn.Neiel, 'ffffffff', 'ffffffff') # Josh 19:27
+# kml.draw_node(obn.Ebron, 'ffffffff', 'ffffffff') # Josh 19:28
+# kml.draw_node(obn.Hammon, 'ffffffff', 'ffffffff') # Josh 19:28
+# kml.draw_node(obn.d['Kanah 2'] , 'ffffffff', 'ffffffff') # Josh 19:28
+# kml.draw_node(obn.d['Rehob 2'] , 'ffffffff', 'ffffffff') # Josh 19:28
+# kml.draw_node(obn.d['Sidon the Great'] , 'ffffffff', 'ffffffff') # Josh 19:28
+# kml.draw_node(obn.d['Achzib 2'] , 'ffffffff', 'ffffffff') # Josh 19:29
+# kml.draw_node(obn.Hosah, 'ffffffff', 'ffffffff') # Josh 19:29
+# kml.draw_node(obn.Mahalab, 'ffffffff', 'ffffffff') # Josh 19:29
+# kml.draw_node(obn.d['Ramah 2'] , 'ffffffff', 'ffffffff') # Josh 19:29
+# kml.draw_node(obn.Tyre, 'ffffffff', 'ffffffff') # Josh 19:29
+# kml.draw_node(obn.d['Rehob 3'] , 'ffffffff', 'ffffffff') # Josh 19:30
+# kml.draw_node(obn.Ummah, 'ffffffff', 'ffffffff') # Josh 19:30
+# kml.draw_node(obn.d['Adami-nekeb'] , 'ffffffff', 'ffffffff') # Josh 19:33
+# kml.draw_node(obn.Heleph, 'ffffffff', 'ffffffff') # Josh 19:33
+# kml.draw_node(obn.d['Jabneel 2'] , 'ffffffff', 'ffffffff') # Josh 19:33
+# kml.draw_node(obn.Lakkum, 'ffffffff', 'ffffffff') # Josh 19:33
+# kml.draw_node(obn.Zaanannim, 'ffffffff', 'ffffffff') # Josh 19:33
+# kml.draw_node(obn.d['Aznoth-tabor'] , 'ffffffff', 'ffffffff') # Josh 19:34
+# kml.draw_node(obn.Hukkok, 'ffffffff', 'ffffffff') # Josh 19:34
+# kml.draw_node(obn.d['Chinnereth 2'] , 'ffffffff', 'ffffffff') # Josh 19:35
+# kml.draw_node(obn.Hammath, 'ffffffff', 'ffffffff') # Josh 19:35
+# kml.draw_node(obn.Rakkath, 'ffffffff', 'ffffffff') # Josh 19:35
+# kml.draw_node(obn.Zer, 'ffffffff', 'ffffffff') # Josh 19:35
+# kml.draw_node(obn.Ziddim, 'ffffffff', 'ffffffff') # Josh 19:35
+# kml.draw_node(obn.Adamah, 'ffffffff', 'ffffffff') # Josh 19:36
+# kml.draw_node(obn.d['Hazor 1'] , 'ffffffff', 'ffffffff') # Josh 19:36
+# kml.draw_node(obn.d['Ramah 3'] , 'ffffffff', 'ffffffff') # Josh 19:36
+# kml.draw_node(obn.d['En-hazor'] , 'ffffffff', 'ffffffff') # Josh 19:37
+# kml.draw_node(obn.d['Kedesh 1'] , 'ffffffff', 'ffffffff') # Josh 19:37
+# kml.draw_node(obn.d['Beth-anath'] , 'ffffffff', 'ffffffff') # Josh 19:38
+# kml.draw_node(obn.d['Beth-shemesh 3'] , 'ffffffff', 'ffffffff') # Josh 19:38
+# kml.draw_node(obn.Horem, 'ffffffff', 'ffffffff') # Josh 19:38
+# kml.draw_node(obn.d['Migdal-el'] , 'ffffffff', 'ffffffff') # Josh 19:38
+# kml.draw_node(obn.Yiron, 'ffffffff', 'ffffffff') # Josh 19:38
+# kml.draw_node(obn.d['Ir-shemesh'] , 'ffffffff', 'ffffffff') # Josh 19:41
+# kml.draw_node(obn.Aijalon, 'ffffffff', 'ffffffff') # Josh 19:42
+# kml.draw_node(obn.Ithlah, 'ffffffff', 'ffffffff') # Josh 19:42
+# kml.draw_node(obn.Shaalabbin, 'ffffffff', 'ffffffff') # Josh 19:42
+# kml.draw_node(obn.Elon, 'ffffffff', 'ffffffff') # Josh 19:43
+# kml.draw_node(obn.d['Baalath 1'] , 'ffffffff', 'ffffffff') # Josh 19:44
+# kml.draw_node(obn.Eltekeh, 'ffffffff', 'ffffffff') # Josh 19:44
+# kml.draw_node(obn.Gibbethon, 'ffffffff', 'ffffffff') # Josh 19:44
+# kml.draw_node(obn.d['Bene-berak'] , 'ffffffff', 'ffffffff') # Josh 19:45
+# kml.draw_node(obn.d['Gath-rimmon 1'] , 'ffffffff', 'ffffffff') # Josh 19:45
+# kml.draw_node(obn.Jehud, 'ffffffff', 'ffffffff') # Josh 19:45
+# kml.draw_node(obn.Joppa, 'ffffffff', 'ffffffff') # Josh 19:46
+# kml.draw_node(obn.d['Me-jarkon'] , 'ffffffff', 'ffffffff') # Josh 19:46
+# kml.draw_node(obn.Rakkon, 'ffffffff', 'ffffffff') # Josh 19:46
+# kml.draw_node(obn.Dan, 'ffffffff', 'ffffffff') # Josh 19:47
+# kml.draw_node(obn.Leshem, 'ffffffff', 'ffffffff') # Josh 19:47
+# kml.draw_node(obn.d['Timnath-serah'] , 'ffffffff', 'ffffffff') # Josh 19:50
 
 
 # Asser
@@ -696,7 +711,7 @@ kml.draw_node(obn.Leshem         , 'ff55ff00', 'ff55ff00')
 
 # }
 
-kml.write('karte_created.kml')
+kml.write('result.kml')
 
 # Stamm_Manasse()
 

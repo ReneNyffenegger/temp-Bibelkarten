@@ -26,7 +26,7 @@ for ch in range(13, 20):
 
             v_txt = 'Josh ' + str(ch) + ':' + str(v)
 
-            if v_txt in notes:
+            if re.search('\\b' + v_txt + '\\b', notes):
                 place_name = record[0]
 
                 if place_name in seen:
