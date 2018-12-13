@@ -14,6 +14,9 @@ class Node():
 class Way():
       def __init__(self, *nodes):
           self.nodes = nodes
+      
+      def setName(self, name):
+          self.name = name
 
 class Ways():
       pass
@@ -63,11 +66,11 @@ class KML: # {
 #     				<name>Untitled Polygon</name>
 #     		                <styleUrl>#m_ylw-pushpin</styleUrl>
           kml_f.write(
-""" <Placemark>
+""" <Placemark><name>{:s}</name>
   <Style><LineStyle><color>{:s}</color><width>{:d}</width></LineStyle></Style>
   <LineString>
     <tessellate>1</tessellate>
-      <coordinates>""".format(way['color'], way['width']))
+      <coordinates>""".format(way['way'].name, way['color'], way['width']))
 
           for n in way['way'].nodes:
               kml_f.write(" {:15.12f},{:15.12f}".format(n.lon, n.lat))
@@ -89,7 +92,7 @@ class KML: # {
     </IconStyle><LabelStyle><color>{:s}</color></LabelStyle></Style>
   <Point><coordinates>{:f},{:f}</coordinates></Point>
 </Placemark>""".format(node['node'].name, node['color_icon'], node['color_icon'], node['node'].lon, node['node'].lat))
-
+       # }
  
 # ways['Grenze-Asser-Naphtali'] = Way(obn.Sidon, obn.Zarephath, obn.Tyre, obn.Acco)
 
@@ -196,6 +199,8 @@ class AddDotAccessToDict: # {
       def __setattr__(self, attr, val):
 #         if attr == 'd':
           object.__setattr__(self, attr, val)
+          if type(val) == Way:
+             val.setName(attr)
 #            return
 #         self.d[attr] = val
 
