@@ -9,7 +9,13 @@ class Node():
       def __init__(self, name, lon, lat):
             self.name = name
             self.lon  = lon
-            self.lat   = lat
+            self.lat  = lat
+            
+      def writeCoordinatePairToKML(self, kml_f):
+          kml_f.write(" {:15.12f},{:15.12f}".format(self.lon, self.lat))
+      
+      def __eq__(self, other):
+          return self.name == other.name
 
 class Way():
       def __init__(self, *nodes):
@@ -18,20 +24,29 @@ class Way():
       def setName(self, name):
           self.name = name
 
-class Ways():
-      pass
+      def writeCoordinatePairsToKML(self, kml_f): # {
+          for n in self.nodes:
+              n.writeCoordinatePairToKML(kml_f)
+# qqq         kml_f.write(" {:15.12f},{:15.12f}".format(n.lon, n.lat))
+
+      # }
+
+
+
+#  class Ways():
+#        pass
 
 # class Relation():
 #       def __init__(self, *things):
 #           self.things = things
 
-class Area():
-    pass
 
 class KML: # {
+
       def __init__(self):
           self.ways_to_draw  = []
           self.nodes_to_draw = []
+          self.areas_to_draw = []
 
       def draw_node(self, node, color_label, color_icon):
           if type(node) == Node:
@@ -39,32 +54,93 @@ class KML: # {
           else:
               print('oha!')
 
-      def draw_way(self, thing, color_RBGA, width): # {  RBG, not RGB!
+      def draw_way(self, thing, color_ABGR, width): # { 
 
           if type(thing) == Way:
-              self.ways_to_draw.append({'way': thing, 'color': color_RBGA, 'width': width})
+              self.ways_to_draw.append({'way': thing, 'color': color_ABGR, 'width': width})
           else:
               print('oha!')
+      # }
+
+      def draw_area(self, name, colorBorder, widthBorder, colorArea, ways_or_nodes): # {
+          self.areas_to_draw.append({'name': name, 'ways_or_nodes': ways_or_nodes, 'colorBorder': colorBorder, 'widthBorder': widthBorder, 'colorArea': colorArea})
       # }
 
       def write(self, filename): # {
          kml_f = open(filename, 'w')
          self.write_intro(kml_f)
 
+         for area in self.areas_to_draw: # {
+             self.draw_area_(kml_f, area)
+
+
+         # }
+             
+
          for way_to_draw in self.ways_to_draw:
-#            self.draw_way_(kml_f, way_to_draw['way'], way_to_draw['color'], way_to_draw['width'])
              self.draw_way_(kml_f, way_to_draw)
 
          for node_to_draw in self.nodes_to_draw:
-#            self.draw_node_(kml_f, way_to_draw['way'], way_to_draw['color'], way_to_draw['width'])
              self.draw_node_(kml_f, node_to_draw)
 
          self.write_outro(kml_f)
       # }
 
+      def writePlacemarkIntro(self, kml_f, name): # {
+          kml_f.write('<Placemark><name>{:s}</name>'.format(name))
+      # }
+
+      def writeLineStyle(self, kml_f, color, width): # {
+          kml_f.write('<LineStyle><color>{:s}</color><width>{:f}</width></LineStyle>'.format(color, width))
+      # }
+
+      def writeLinearRing(self, kml_f, ways_or_nodes): # {
+
+          kml_f.write('<LinearRing><coordinates>')
+
+          firstNode = ways_or_nodes[0]
+
+#         print(len(ways_or_nodes))
+
+          way_or_node_cnt = 0
+          for way_or_node in ways_or_nodes:
+              way_or_node_cnt += 1
+
+              if type(way_or_node) == Node:
+                 way_or_node.writeCoordinatePairToKML(kml_f)
+              else:
+                 way_or_node.writeCoordinatePairsToKML(kml_f)
+
+              firstNode.writeCoordinatePairsToKML(kml_f)
+
+
+
+          kml_f.write('</coordinates></LinearRing>')
+
+
+      # }
+
+      def draw_area_(self, kml_f, area): # {
+          self.writePlacemarkIntro(kml_f, area['name'])
+          kml_f.write('<Style>')
+          self.writeLineStyle(kml_f, area['colorBorder'], area['widthBorder'])
+          kml_f.write('<PolyStyle><color>{:s}</color></PolyStyle>'.format(area['colorArea']))
+          kml_f.write('</Style>')
+
+          kml_f.write("""
+    <Polygon>
+      <tessellate>1</tessellate>
+      <outerBoundaryIs>""")
+
+          self.writeLinearRing(kml_f, area['ways_or_nodes'])
+
+          kml_f.write(""" </outerBoundaryIs>
+    </Polygon>""")
+
+          kml_f.write('</Placemark>')
+      # }
+
       def draw_way_(self, kml_f, way): # {
-#     				<name>Untitled Polygon</name>
-#     		                <styleUrl>#m_ylw-pushpin</styleUrl>
           kml_f.write(
 """ <Placemark><name>{:s}</name>
   <Style><LineStyle><color>{:s}</color><width>{:d}</width></LineStyle></Style>
@@ -72,17 +148,21 @@ class KML: # {
     <tessellate>1</tessellate>
       <coordinates>""".format(way['way'].name, way['color'], way['width']))
 
-          for n in way['way'].nodes:
-              kml_f.write(" {:15.12f},{:15.12f}".format(n.lon, n.lat))
-      
+          way['way'].writeCoordinatePairsToKML(kml_f)
+
+#           for n in way['way'].nodes:
+#               n.writeCoordinatePairToKML(kml_f)
+# # qqq         kml_f.write(" {:15.12f},{:15.12f}".format(n.lon, n.lat))
+#       
           kml_f.write("""</coordinates>
       		</LineString>
       	</Placemark>""")
        # }
 
       def draw_node_(self, kml_f, node): # {
-          kml_f.write(
-"""<Placemark><name>{:s}</name>
+          self.writePlacemarkIntro(kml_f, node['node'].name)
+#  """<Placemark><name>{:s}</name>
+          kml_f.write("""
   <Style>
     <IconStyle>
       <color>{:s}</color>
@@ -90,13 +170,15 @@ class KML: # {
         <href>http://maps.google.com/mapfiles/kml/pushpin/wht-pushpin.png</href>
       </Icon>
     </IconStyle><LabelStyle><color>{:s}</color></LabelStyle></Style>
-  <Point><coordinates>{:f},{:f}</coordinates></Point>
-</Placemark>""".format(node['node'].name, node['color_icon'], node['color_icon'], node['node'].lon, node['node'].lat))
+  <Point><coordinates>""".format(node['color_icon'], node['color_icon']))
+
+          node['node'].writeCoordinatePairToKML(kml_f)
+
+          # <coordinates>{:f},{:f}</coordinates>
+          kml_f.write("""</coordinates></Point>
+</Placemark>""") # .format(node['node'].name, node['color_icon'], node['color_icon'], node['node'].lon, node['node'].lat))
        # }
  
-# ways['Grenze-Asser-Naphtali'] = Way(obn.Sidon, obn.Zarephath, obn.Tyre, obn.Acco)
-
-
       def write_intro(self, kml_f): # {
           # {
           kml_f.write("""<?xml version="1.0" encoding="UTF-8"?>
@@ -231,6 +313,10 @@ def create_ways(): # {
                               obn.Hukkok) # Und so stieß sie an Sebulon gegen Süden, und an Asser stieß sie gegen Westen, und an Juda am Jordan gegen Sonnenaufgang.
 # }
 
+# def create_areas():
+#     area.alle_Bezirke_der_Phlister_und_das_ganze_Geschuri=Area(way.Meer_Asdod_Gaza, obn.Ekron, obn.Gath, obn.Shihor)
+#     pass
+
 def read_openbible_merged(): # {
 
     merged_f   = open('openbible.info/merged.txt', 'r')
@@ -258,8 +344,6 @@ def read_openbible_merged(): # {
            continue
 
         openbible_nodes[place_name] = Node(place_name, float(lon_string), float(lat_string))
-#       openbible_nodes[place_name]['lat'] = lat
-#       openbible_nodes[place_name]['lon'] = lon
 
 # }
 
@@ -289,6 +373,8 @@ kml = KML()
 
 # def alle_Bezirke_der_Phlister_und_das_ganze_Geschuri:
 
+
+
 # alle Bezirke der Philister und das ganze Geschuri;
 kml.draw_node(obn.Ashdod  , 'ff000000', 'ff000000') # Josh 13:3
 kml.draw_node(obn.Ashkelon, 'ff000000', 'ff000000') # Josh 13:3
@@ -298,6 +384,8 @@ kml.draw_node(obn.Gath    , 'ff000000', 'ff000000') # Josh 13:3
 kml.draw_node(obn.Gaza    , 'ff000000', 'ff000000') # Josh 13:3
 
 kml.draw_node(obn.Shihor  , 'ffff6666', 'ffff0000') # Josh 13:3
+
+kml.draw_area('Philister und Bezirke des Geschurri', '00000000', 0, 'c0000000', (way.Meer_Asdod_Gaza, way.Grenze_Philister_jos_13_2))
 
 # kml.draw_node(obn.d['Aphek 1'] , 'ffffffff', 'ffffffff') # Josh 13:4
 # kml.draw_node(obn.Mearah, 'ffffffff', 'ffffffff') # Josh 13:4
