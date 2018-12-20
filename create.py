@@ -371,11 +371,15 @@ create_ways()
 
 kml = KML()
 
+color_label_river = 'ffff6666'
+color_label_icon  = 'ffff0000'
+
 # def alle_Bezirke_der_Phlister_und_das_ganze_Geschuri:
 
+# Jos 13 {
 
 
-# alle Bezirke der Philister und das ganze Geschuri;
+# alle Bezirke der Philister und das ganze Geschuri; {
 kml.draw_node(obn.Ashdod  , 'ff000000', 'ff000000') # Josh 13:3
 kml.draw_node(obn.Ashkelon, 'ff000000', 'ff000000') # Josh 13:3
 kml.draw_node(obn.Egypt   , 'ff000000', 'ff000000') # Josh 13:3
@@ -383,28 +387,32 @@ kml.draw_node(obn.Ekron   , 'ff000000', 'ff000000') # Josh 13:3
 kml.draw_node(obn.Gath    , 'ff000000', 'ff000000') # Josh 13:3
 kml.draw_node(obn.Gaza    , 'ff000000', 'ff000000') # Josh 13:3
 
-kml.draw_node(obn.Shihor  , 'ffff6666', 'ffff0000') # Josh 13:3
+kml.draw_node(obn.Shihor  , color_label_river, color_label_icon) # Josh 13:3
 
 kml.draw_area('Philister und Bezirke des Geschurri', '00000000', 0, 'c0000000', (way.Meer_Asdod_Gaza, way.Grenze_Philister_jos_13_2))
 
-# kml.draw_node(obn.d['Aphek 1'] , 'ffffffff', 'ffffffff') # Josh 13:4
-# kml.draw_node(obn.Mearah, 'ffffffff', 'ffffffff') # Josh 13:4
-# kml.draw_node(obn.d['Baal-gad'] , 'ffffffff', 'ffffffff') # Josh 13:5
-# kml.draw_node(obn.Lebanon, 'ffffffff', 'ffffffff') # Josh 13:5
-# kml.draw_node(obn.d['Lebo-hamath'] , 'ffffffff', 'ffffffff') # Josh 13:5
-# kml.draw_node(obn.d['Mount Hermon'] , 'ffffffff', 'ffffffff') # Josh 13:5
-# kml.draw_node(obn.d['Misrephoth-maim'] , 'ffffffff', 'ffffffff') # Josh 13:6
+# }
+
+kml.draw_node(obn.d['Aphek 1'] , 'ffffffff', 'ffffffff') # Josh 13:4
+
+kml.draw_node(obn.Mearah, 'ffffffff', 'ffffffff') # Josh 13:4
+
+kml.draw_node(obn.d['Baal-gad'] , 'ffffffff', 'ffffffff') # Josh 13:5
+kml.draw_node(obn.Lebanon, 'ffffffff', 'ffffffff') # Josh 13:5
+kml.draw_node(obn.d['Lebo-hamath'] , 'ffffffff', 'ffffffff') # Josh 13:5
+kml.draw_node(obn.d['Mount Hermon'] , 'ffffffff', 'ffffffff') # Josh 13:5
+kml.draw_node(obn.d['Misrephoth-maim'] , 'ffffffff', 'ffffffff') # Josh 13:6
 # kml.draw_node(obn.Jordan, 'ffffffff', 'ffffffff') # Josh 13:8
-# kml.draw_node(obn.d['Aroer 1'] , 'ffffffff', 'ffffffff') # Josh 13:9
-# kml.draw_node(obn.d['Dibon 1'] , 'ffffffff', 'ffffffff') # Josh 13:9
-# kml.draw_node(obn.Medeba, 'ffffffff', 'ffffffff') # Josh 13:9
-# kml.draw_node(obn.d['Valley of the Arnon'] , 'ffffffff', 'ffffffff') # Josh 13:9
-# kml.draw_node(obn.Heshbon, 'ffffffff', 'ffffffff') # Josh 13:10
-# kml.draw_node(obn.Bashan, 'ffffffff', 'ffffffff') # Josh 13:11
-# kml.draw_node(obn.Gilead, 'ffffffff', 'ffffffff') # Josh 13:11
-# kml.draw_node(obn.Salecah, 'ffffffff', 'ffffffff') # Josh 13:11
-# kml.draw_node(obn.Ashtaroth, 'ffffffff', 'ffffffff') # Josh 13:12
-# kml.draw_node(obn.Edrei, 'ffffffff', 'ffffffff') # Josh 13:12
+kml.draw_node(obn.d['Aroer 1'] , color_label_river, color_label_icon) # Josh 13:9
+kml.draw_node(obn.d['Dibon 1'] , 'ffffffff', 'ffffffff') # Josh 13:9
+kml.draw_node(obn.Medeba, 'ffffffff', 'ffffffff') # Josh 13:9
+kml.draw_node(obn.d['Valley of the Arnon'] , 'ffffffff', 'ffffffff') # Josh 13:9
+kml.draw_node(obn.Heshbon, 'ffffffff', 'ffffffff') # Josh 13:10
+kml.draw_node(obn.Bashan, 'ffffffff', 'ffffffff') # Josh 13:11
+kml.draw_node(obn.Gilead, 'ffffffff', 'ffffffff') # Josh 13:11
+kml.draw_node(obn.Salecah, 'ffffffff', 'ffffffff') # Josh 13:11
+kml.draw_node(obn.Ashtaroth, 'ffffffff', 'ffffffff') # Josh 13:12
+kml.draw_node(obn.Edrei, 'ffffffff', 'ffffffff') # Josh 13:12
 # kml.draw_node(obn.Geshur, 'ffffffff', 'ffffffff') # Josh 13:13
 # kml.draw_node(obn.Maacath, 'ffffffff', 'ffffffff') # Josh 13:13
 # kml.draw_node(obn.d['Bamoth-baal'] , 'ffffffff', 'ffffffff') # Josh 13:17
@@ -434,6 +442,9 @@ kml.draw_area('Philister und Bezirke des Geschurri', '00000000', 0, 'c0000000', 
 # kml.draw_node(obn.Jair, 'ffffffff', 'ffffffff') # Josh 13:30
 # kml.draw_node(obn.Jericho, 'ffffffff', 'ffffffff') # Josh 13:32
 # kml.draw_node(obn.Moab, 'ffffffff', 'ffffffff') # Josh 13:32
+
+# }
+
 # kml.draw_node(obn.Canaan, 'ffffffff', 'ffffffff') # Josh 14:1
 # kml.draw_node(obn.d['Gilgal 1'] , 'ffffffff', 'ffffffff') # Josh 14:6
 # kml.draw_node(obn.d['Kadesh-barnea'] , 'ffffffff', 'ffffffff') # Josh 14:6
@@ -771,7 +782,7 @@ kml.draw_node(obn.d['Ramah 3'], 'ff7711ff', 'ff7711ff')
 kml.draw_node(obn.d['Hazor 1'], 'ff7711ff', 'ff7711ff')
 
 kml.draw_node(obn.d['Kedesh 1'], 'ff7711ff', 'ff7711ff')
-kml.draw_node(obn.Edrei        , 'ff7711ff', 'ff7711ff')
+# kml.draw_node(obn.Edrei        , 'ff7711ff', 'ff7711ff')
 kml.draw_node(obn.d['En-hazor'], 'ff7711ff', 'ff7711ff')
 
 kml.draw_node(obn.Horem        , 'ff7711ff', 'ff7711ff')
