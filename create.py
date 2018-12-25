@@ -48,11 +48,12 @@ class KML: # {
           self.nodes_to_draw = []
           self.areas_to_draw = []
 
-      def draw_node(self, node, color_label, color_icon):
+      def draw_node(self, node, color_label, color_icon): # {
           if type(node) == Node:
               self.nodes_to_draw.append({'node': node, 'color_label': color_label, 'color_icon': color_icon})
           else:
               print('oha!')
+      # }
 
       def draw_way(self, thing, color_ABGR, width): # { 
 
