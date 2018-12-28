@@ -10,9 +10,10 @@ def deg(degrees, minutes, seconds):
 
 class Node(): # {
       def __init__(self, name, lon, lat):
-            self.name = name
-            self.lon  = lon
-            self.lat  = lat
+            self.name        = name
+            self.lon         = lon
+            self.lat         = lat
+            self.description = None
             
       def writeCoordinatePairToKML(self, kml_f):
           kml_f.write(" {:15.12f},{:15.12f}".format(self.lon, self.lat))
@@ -49,7 +50,8 @@ class KML: # {
 
       class BalloonStyle: # {
             def __init__(self, id):
-                self.id = id 
+                self.id   = id 
+                self.text = '$[description]' # This seems to be a reasonable default.
 
       # }
 
@@ -90,12 +92,12 @@ class KML: # {
          kml_f = open(filename, 'w')
          self.write_intro(kml_f)
 
+         for ballon_style in self.balloonStyles:
+             self.draw_ballon_style(kml_f, ballon_style)
+
          for area in self.areas_to_draw: # {
              self.draw_area_(kml_f, area)
-
-
          # }
-             
 
          for way_to_draw in self.ways_to_draw:
              self.draw_way_(kml_f, way_to_draw)
@@ -140,6 +142,12 @@ class KML: # {
 
       # }
 
+      def draw_ballon_style(self, kml_f, ballon_style):
+          kml_f.write('<Style id="' + ballon_style.id + '"><BalloonStyle>')
+
+          kml_f.write('<text>' + ballon_style.text + '</text>')
+          kml_f.write('</BalloonStyle></Style>')
+
       def draw_area_(self, kml_f, area): # {
           self.writePlacemarkIntro(kml_f, area['name'])
           kml_f.write('<Style>')
@@ -181,7 +189,6 @@ class KML: # {
 
       def draw_node_(self, kml_f, node): # {
           self.writePlacemarkIntro(kml_f, node['node'].name)
-#  """<Placemark><name>{:s}</name>
           kml_f.write("""
   <Style>
     <IconStyle>
@@ -189,8 +196,12 @@ class KML: # {
       <Icon>
         <href>http://maps.google.com/mapfiles/kml/pushpin/wht-pushpin.png</href>
       </Icon>
-    </IconStyle><LabelStyle><color>{:s}</color></LabelStyle></Style>
-  <Point><coordinates>""".format(node['color_icon'], node['color_icon']))
+    </IconStyle><LabelStyle><color>{:s}</color></LabelStyle></Style>""".format(node['color_icon'], node['color_icon']))
+
+          if node['node'].description:
+             kml_f.write('<description>{:s}</description><StyleUrl>#note</StyleUrl>'.format(node['node'].description))
+
+          kml_f.write("<Point><coordinates>")
 
           node['node'].writeCoordinatePairToKML(kml_f)
 
@@ -402,6 +413,12 @@ def Stamm_Manasse(): # {
 
 
 read_openbible_merged()
+
+# descriptions {
+
+obn.Akrabbim.description = "Nahe Grenze zu Edom? (Jos 15:1<br/>An Grenze der Amoriter (Ri 1:36)"
+
+# }
 
 create_ways()
 
