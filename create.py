@@ -5,7 +5,10 @@ import csv
 import re
 
 
-class Node():
+def deg(degrees, minutes, seconds):
+    return degrees + minutes/60  + seconds/3600
+
+class Node(): # {
       def __init__(self, name, lon, lat):
             self.name = name
             self.lon  = lon
@@ -16,8 +19,9 @@ class Node():
       
       def __eq__(self, other):
           return self.name == other.name
+# }
 
-class Way():
+class Way(): # {
       def __init__(self, *nodes):
           self.nodes = nodes
       
@@ -30,7 +34,7 @@ class Way():
 # qqq         kml_f.write(" {:15.12f},{:15.12f}".format(n.lon, n.lat))
 
       # }
-
+# }
 
 
 #  class Ways():
@@ -43,10 +47,18 @@ class Way():
 
 class KML: # {
 
-      def __init__(self):
+      class BalloonStyle: # {
+            def __init__(self, id):
+                self.id = id 
+
+      # }
+
+      def __init__(self): # {
           self.ways_to_draw  = []
           self.nodes_to_draw = []
           self.areas_to_draw = []
+          self.balloonStyles = []
+      # }
 
       def draw_node(self, node, color_label, color_icon): # {
           if type(node) == Node:
@@ -65,6 +77,13 @@ class KML: # {
 
       def draw_area(self, name, colorBorder, widthBorder, colorArea, ways_or_nodes): # {
           self.areas_to_draw.append({'name': name, 'ways_or_nodes': ways_or_nodes, 'colorBorder': colorBorder, 'widthBorder': widthBorder, 'colorArea': colorArea})
+      # }
+
+      def addBalloonStyle(self, id): # {
+          ballonStyle = KML.BalloonStyle(id)
+          self.balloonStyles.append(ballonStyle)
+          return ballonStyle
+
       # }
 
       def write(self, filename): # {
@@ -290,9 +309,23 @@ class AddDotAccessToDict: # {
 # }
 
 openbible_nodes = {}
+tq84_nodes      = {}
 obn = AddDotAccessToDict(openbible_nodes)
+tqn = AddDotAccessToDict(tq84_nodes)
 ways = {};
 way = AddDotAccessToDict(ways)
+
+# tq84 nodes {
+
+def addTQ84Node(name, lon_deg, lon_min, lon_sec, lat_deg, lat_min, lat_sec):
+    tq84_nodes[name] = Node(name, deg(lon_deg, lon_min, lon_sec), deg(lat_deg, lat_min, lat_sec))
+
+#                                  East              North
+addTQ84Node('SalzmeerSued'     ,   35, 23,  4.67,    30, 55, 41.19)
+addTQ84Node('Hezron'           ,   34, 40, 55.94,    30, 53, 49.65)
+addTQ84Node('BachAegypten_Meer',   33, 49, 44.55,    31,  9, 14.32)
+
+# }
 
 def create_ways(): # {
     way.MeerAsser       = Way(obn.Sidon, obn.Zarephath, obn.Tyre, obn.Acco)
@@ -312,6 +345,8 @@ def create_ways(): # {
     way.Naphtali_jos_33 = Way(obn.Heleph, obn.Zaanannim, obn.d['Adami-nekeb'], obn.d['Jabneel 2'], obn.Lakkum)
     way.Naphtali_jos_34 = Way(obn.Lakkum, obn.d['Aznoth-tabor'], # Westwärts
                               obn.Hukkok) # Und so stieß sie an Sebulon gegen Süden, und an Asser stieß sie gegen Westen, und an Juda am Jordan gegen Sonnenaufgang.
+
+
 # }
 
 # def create_areas():
@@ -372,8 +407,11 @@ create_ways()
 
 kml = KML()
 
+
 color_label_river = 'ffff6666'
 color_label_icon  = 'ffff0000'
+
+balloonStyleNote = kml.addBalloonStyle('note')
 
 # def alle_Bezirke_der_Phlister_und_das_ganze_Geschuri:
 
@@ -470,19 +508,29 @@ kml.draw_node(obn.Moab, col_manasse_ost_label, col_manasse_ost_icon) # Josh 13:3
 
 # kml.draw_node(obn.Canaan, 'ffffffff', 'ffffffff') # Josh 14:1
 # kml.draw_node(obn.d['Gilgal 1'] , 'ffffffff', 'ffffffff') # Josh 14:6
-# kml.draw_node(obn.d['Kadesh-barnea'] , 'ffffffff', 'ffffffff') # Josh 14:6
 # kml.draw_node(obn.Hebron, 'ffffffff', 'ffffffff') # Josh 14:13
 # kml.draw_node(obn.d['Kiriath-arba'] , 'ffffffff', 'ffffffff') # Josh 14:15
 # kml.draw_node(obn.Edom, 'ffffffff', 'ffffffff') # Josh 15:1
-# kml.draw_node(obn.d['Zin 1'] , 'ffffffff', 'ffffffff') # Josh 15:1
-# kml.draw_node(obn.d['Salt Sea'] , 'ffffffff', 'ffffffff') # Josh 15:2
-# kml.draw_node(obn.Addar, 'ffffffff', 'ffffffff') # Josh 15:3
-# kml.draw_node(obn.Akrabbim, 'ffffffff', 'ffffffff') # Josh 15:3
-# kml.draw_node(obn.Hezron, 'ffffffff', 'ffffffff') # Josh 15:3
-# kml.draw_node(obn.Karka, 'ffffffff', 'ffffffff') # Josh 15:3
-# kml.draw_node(obn.d['Zin 2'] , 'ffffffff', 'ffffffff') # Josh 15:3
-# kml.draw_node(obn.Azmon, 'ffffffff', 'ffffffff') # Josh 15:4
-# kml.draw_node(obn.d['Brook of Egypt'] , 'ffffffff', 'ffffffff') # Josh 15:4
+
+# { Südgrenze Juda Jos 15:2 ff
+
+kml.draw_node(obn.d['Kadesh-barnea'] , 'ffffffff', 'ffffffff') # Josh 14:6
+kml.draw_node(obn.d['Zin 1'] , 'ffffffff', 'ffffffff') # Josh 15:1
+kml.draw_node(obn.d['Salt Sea'] , 'ffffffff', 'ffffffff') # Josh 15:2
+kml.draw_node(tqn.SalzmeerSued, 'ffffffff', 'ffffffff')
+kml.draw_node(obn.Addar, 'ffffffff', 'ffffffff') # Josh 15:3
+kml.draw_node(obn.Akrabbim, 'ffffffff', 'ffffffff') # Josh 15:3
+kml.draw_node(tqn.Hezron, 'ffffffff', 'ffffffff') # tqn
+kml.draw_node(obn.Karka, 'ffffffff', 'ffffffff') # Josh 15:3
+kml.draw_node(obn.d['Zin 2'] , 'ffffffff', 'ffffffff') # Josh 15:3
+kml.draw_node(obn.Azmon, 'ffffffff', 'ffffffff') # Josh 15:4
+kml.draw_node(obn.d['Brook of Egypt'] , 'ffffffff', 'ffffffff') # Josh 15:4
+
+way.Suedgrenze_Juda_Jos_15_2 = Way(tqn.SalzmeerSued, obn.Akrabbim, obn.d['Zin 2'], obn.d['Kadesh-barnea'], tqn.Hezron, obn.Addar, obn.Karka, obn.Azmon, obn.d['Brook of Egypt'], tqn.BachAegypten_Meer)
+kml.draw_way(way.Suedgrenze_Juda_Jos_15_2, 'ff0000ff', 5)
+
+# }
+
 # kml.draw_node(obn.d['Beth-arabah'] , 'ffffffff', 'ffffffff') # Josh 15:6
 # kml.draw_node(obn.d['Beth-hoglah'] , 'ffffffff', 'ffffffff') # Josh 15:6
 # kml.draw_node(obn.Adummim, 'ffffffff', 'ffffffff') # Josh 15:7
