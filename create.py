@@ -199,7 +199,7 @@ class KML: # {
     </IconStyle><LabelStyle><color>{:s}</color></LabelStyle></Style>""".format(node['color_icon'], node['color_icon']))
 
           if node['node'].description:
-             kml_f.write('<description>{:s}</description><StyleUrl>#note</StyleUrl>'.format(node['node'].description))
+             kml_f.write('<description>{:s}</description><styleUrl>#note</styleUrl>'.format(node['node'].description))
 
           kml_f.write("<Point><coordinates>")
 
@@ -331,10 +331,15 @@ way = AddDotAccessToDict(ways)
 def addTQ84Node(name, lon_deg, lon_min, lon_sec, lat_deg, lat_min, lat_sec):
     tq84_nodes[name] = Node(name, deg(lon_deg, lon_min, lon_sec), deg(lat_deg, lat_min, lat_sec))
 
-#                                  East              North
-addTQ84Node('SalzmeerSued'     ,   35, 23,  4.67,    30, 55, 41.19)
-addTQ84Node('Hezron'           ,   34, 40, 55.94,    30, 53, 49.65)
-addTQ84Node('BachAegypten_Meer',   33, 49, 44.55,    31,  9, 14.32)
+#                                      East              North
+addTQ84Node('SalzmeerSued'           , 35, 23,  4.67,    30, 55, 41.19)
+addTQ84Node('Hezron'                 , 34, 40, 55.94,    30, 53, 49.65)
+addTQ84Node('BachAegypten_Meer'      , 33, 49, 44.55,    31,  9, 14.32)
+addTQ84Node('SalzmeerJordan'         , 35, 33, 29.49,    31, 45, 43.21)
+addTQ84Node('SteinBohans'            , 35, 24, 36.99,    31, 49, 54.48)
+addTQ84Node('GilgalgegenueberAdummim', 35, 20, 44.50,    31, 49, 41.98)
+
+tqn.GilgalgegenueberAdummim.description = "Gegenüber der Anhöhe Adummim, südlich vom Bach (Jos 15:7)"
 
 # }
 
@@ -417,6 +422,25 @@ read_openbible_merged()
 # descriptions {
 
 obn.Akrabbim.description = "Nahe Grenze zu Edom? (Jos 15:1<br/>An Grenze der Amoriter (Ri 1:36)"
+obn.Mearah.description    = "Gehört den Zidoniern (Jos 13:4)"
+obn.d['Aphek 1'].description  = "Grenze der Amoriter? (Jos 13:4), vgl Aphek 3"
+obn.d['Aphek 3'].description  = "Grenze der Amoriter? (Jos 13:4), vgl Aphek 1"
+obn.d['Baal-gad'].description  = "Am Fuß des Berges Hermon (Jos 13:5)"
+obn.d['Aroer 1'].description  = "Am Ufer des Flusses Arnon (Jos 13:16)"
+obn.d['Aroer 2'].description  = "Liegt vor Rabba (Jos 13:25)"
+
+obn.d['Dibon 1'].description  = "In der Ebene (Jos 13:17 ff)"
+obn.d['Bamoth-baal'].description  = "In der Ebene (Jos 13:17 ff)"
+obn.d['Beth-baal-meon'].description  = "In der Ebene (Jos 13:17 ff)"
+obn.Jahaz.description                = "In der Ebene (Jos 13:17 ff)"
+obn.Kedemoth.description             = "In der Ebene (Jos 13:17 ff)"
+obn.Mephaath.description             = "In der Ebene (Jos 13:17 ff)"
+obn.d['Kiriathaim 1'].description    = "In der Ebene (Jos 13:17 ff)"
+obn.Sibmah.description               = "In der Ebene (Jos 13:17 ff)"
+obn.d['Zereth-shahar'].description   = "Auf dem Berg der Talebene (Jos 13:19)"
+
+obn.Rabbah.description = "Nahe bei Aroer 2 (Jos 13:25)"
+
 
 # }
 
@@ -450,6 +474,8 @@ kml.draw_area('Philister und Bezirke des Geschurri', '00000000', 0, 'c0000000', 
 # }
 
 kml.draw_node(obn.d['Aphek 1'] , 'ffffffff', 'ffffffff') # Josh 13:4
+kml.draw_node(obn.d['Aphek 2'] , 'ffffffff', 'ffffffff')
+kml.draw_node(obn.d['Aphek 3'] , 'ffffffff', 'ffffffff')
 
 kml.draw_node(obn.Mearah, 'ffffffff', 'ffffffff') # Josh 13:4
 
@@ -524,7 +550,6 @@ kml.draw_node(obn.Moab, col_manasse_ost_label, col_manasse_ost_icon) # Josh 13:3
 # }
 
 # kml.draw_node(obn.Canaan, 'ffffffff', 'ffffffff') # Josh 14:1
-# kml.draw_node(obn.d['Gilgal 1'] , 'ffffffff', 'ffffffff') # Josh 14:6
 # kml.draw_node(obn.Hebron, 'ffffffff', 'ffffffff') # Josh 14:13
 # kml.draw_node(obn.d['Kiriath-arba'] , 'ffffffff', 'ffffffff') # Josh 14:15
 # kml.draw_node(obn.Edom, 'ffffffff', 'ffffffff') # Josh 15:1
@@ -546,32 +571,70 @@ kml.draw_node(obn.d['Brook of Egypt'] , 'ffffffff', 'ffffffff') # Josh 15:4
 way.Suedgrenze_Juda_Jos_15_2 = Way(tqn.SalzmeerSued, obn.Akrabbim, obn.d['Zin 2'], obn.d['Kadesh-barnea'], tqn.Hezron, obn.Addar, obn.Karka, obn.Azmon, obn.d['Brook of Egypt'], tqn.BachAegypten_Meer)
 kml.draw_way(way.Suedgrenze_Juda_Jos_15_2, 'ff0000ff', 5)
 
-# }
-
-# kml.draw_node(obn.d['Beth-arabah'] , 'ffffffff', 'ffffffff') # Josh 15:6
-# kml.draw_node(obn.d['Beth-hoglah'] , 'ffffffff', 'ffffffff') # Josh 15:6
+kml.draw_node(tqn.SalzmeerJordan, 'ffffffff', 'ffffffff')
+kml.draw_node(obn.d['Beth-hoglah'] , 'ffffffff', 'ffffffff') # Josh 15:6
+kml.draw_node(obn.d['Beth-arabah'] , 'ffffffff', 'ffffffff') # Josh 15:6
+kml.draw_node(tqn.SteinBohans      , 'ffffffff', 'ffffffff') # Josh 15:6
+kml.draw_node(obn.d['Debir 2'] , 'ffffffff', 'ffffffff') # Josh 15:7
+kml.draw_node(obn.d['Gilgal 1'] , 'ffffffff', 'ffffffff') # Josh 14:6
 # kml.draw_node(obn.Adummim, 'ffffffff', 'ffffffff') # Josh 15:7
-# kml.draw_node(obn.d['Debir 2'] , 'ffffffff', 'ffffffff') # Josh 15:7
-# kml.draw_node(obn.d['En-rogel'] , 'ffffffff', 'ffffffff') # Josh 15:7
-# kml.draw_node(obn.d['En-shemesh'] , 'ffffffff', 'ffffffff') # Josh 15:7
+kml.draw_node(obn.GilgalgegenueberAdummim, 'ffffffff', 'ffffffff')
+kml.draw_node(obn.d['En-shemesh'] , 'ffffffff', 'ffffffff') # Josh 15:7
+kml.draw_node(obn.d['En-rogel'] , 'ffffffff', 'ffffffff') # Josh 15:7
+kml.draw_node(obn.d['Valley of Hinnom'] , 'ffffffff', 'ffffffff') # Josh 15:8
+
+
+
 # kml.draw_node(obn.d['Valley of Achor'] , 'ffffffff', 'ffffffff') # Josh 15:7
 # kml.draw_node(obn.Jebusite, 'ffffffff', 'ffffffff') # Josh 15:8
-# kml.draw_node(obn.Jerusalem, 'ffffffff', 'ffffffff') # Josh 15:8
-# kml.draw_node(obn.d['Valley of Hinnom'] , 'ffffffff', 'ffffffff') # Josh 15:8
-# kml.draw_node(obn.d['Valley of Rephaim'] , 'ffffffff', 'ffffffff') # Josh 15:8
-# kml.draw_node(obn.d['Valley of the Son of Hinnom'] , 'ffffffff', 'ffffffff') # Josh 15:8
-# kml.draw_node(obn.d['Baalah 2'] , 'ffffffff', 'ffffffff') # Josh 15:9
-# kml.draw_node(obn.d['Kiriath-jearim'] , 'ffffffff', 'ffffffff') # Josh 15:9
-# kml.draw_node(obn.d['Mount Ephron'] , 'ffffffff', 'ffffffff') # Josh 15:9
-# kml.draw_node(obn.Nephtoah, 'ffffffff', 'ffffffff') # Josh 15:9
-# kml.draw_node(obn.d['Beth-shemesh 1'] , 'ffffffff', 'ffffffff') # Josh 15:10
-# kml.draw_node(obn.Chesalon, 'ffffffff', 'ffffffff') # Josh 15:10
-# kml.draw_node(obn.d['Mount Jearim'] , 'ffffffff', 'ffffffff') # Josh 15:10
-# kml.draw_node(obn.d['Mount Seir 2'] , 'ffffffff', 'ffffffff') # Josh 15:10
-# kml.draw_node(obn.d['Timnah 1'] , 'ffffffff', 'ffffffff') # Josh 15:10
-# kml.draw_node(obn.d['Jabneel 1'] , 'ffffffff', 'ffffffff') # Josh 15:11
-# kml.draw_node(obn.d['Mount Baalah'] , 'ffffffff', 'ffffffff') # Josh 15:11
-# kml.draw_node(obn.Shikkeron, 'ffffffff', 'ffffffff') # Josh 15:11
+kml.draw_node(obn.d['Valley of the Son of Hinnom'] , 'ffffffff', 'ffffffff') # Josh 15:8
+kml.draw_node(obn.Jerusalem, 'ffffffff', 'ffffffff') # Josh 15:8
+kml.draw_node(obn.d['Valley of Rephaim'] , 'ffffffff', 'ffffffff') # Josh 15:8
+kml.draw_node(obn.Nephtoah, 'ffffffff', 'ffffffff') # Josh 15:9
+kml.draw_node(obn.d['Mount Ephron'] , 'ffffffff', 'ffffffff') # Josh 15:9
+kml.draw_node(obn.d['Kiriath-jearim'] , 'ffffffff', 'ffffffff') # Josh 15:9
+kml.draw_node(obn.d['Baalah 2'] , 'ffffffff', 'ffffffff') # Josh 15:9
+kml.draw_node(obn.d['Mount Seir 2'] , 'ffffffff', 'ffffffff') # Josh 15:10
+kml.draw_node(obn.d['Mount Jearim'] , 'ffffffff', 'ffffffff') # Josh 15:10
+kml.draw_node(obn.Chesalon, 'ffffffff', 'ffffffff') # Josh 15:10
+kml.draw_node(obn.d['Beth-shemesh 1'] , 'ffffffff', 'ffffffff') # Josh 15:10
+kml.draw_node(obn.d['Timnah 1'] , 'ffffffff', 'ffffffff') # Josh 15:10
+kml.draw_node(obn.Shikkeron, 'ffffffff', 'ffffffff') # Josh 15:11
+kml.draw_node(obn.d['Mount Baalah'] , 'ffffffff', 'ffffffff') # Josh 15:11
+kml.draw_node(obn.d['Jabneel 1'] , 'ffffffff', 'ffffffff') # Josh 15:11
+
+way.Nordgrenze_Juda_Jos_15_5 = Way( 
+       tqn.SalzmeerJordan,
+       obn.d['Beth-hoglah'] ,
+       obn.d['Beth-arabah'] ,
+       tqn.SteinBohans,
+       obn.d['Debir 2'] ,
+#      obn.d['Gilgal 1'] ,
+       obn.Adummim,
+       obn.d['En-shemesh'] ,
+       obn.d['En-rogel'] ,
+       obn.d['Valley of Hinnom'],
+       obn.d['Valley of the Son of Hinnom'] ,
+       obn.d['Valley of Rephaim'] ,
+       obn.Nephtoah,
+       obn.d['Mount Ephron'] ,
+       obn.d['Kiriath-jearim'] ,
+       obn.d['Baalah 2'] ,
+       obn.d['Mount Seir 2'] ,
+       obn.d['Mount Jearim'] ,
+       obn.Chesalon,
+       obn.d['Beth-shemesh 1'] ,
+       obn.d['Timnah 1'] ,
+       obn.Shikkeron,
+       obn.d['Mount Baalah'] ,
+       obn.d['Jabneel 1'] )
+kml.draw_way(way.Nordgrenze_Juda_Jos_15_5, 'ff0000ff', 5)
+
+
+
+kml.draw_node(obn.d['Valley of Achor'] , 'ffffffff', 'ffffffff') # Josh 15:7
+
+# }
 # kml.draw_node(obn.d['Great Sea'] , 'ffffffff', 'ffffffff') # Josh 15:12
 # kml.draw_node(obn.d['Debir 1'] , 'ffffffff', 'ffffffff') # Josh 15:15
 # kml.draw_node(obn.d['Kiriath-sepher'] , 'ffffffff', 'ffffffff') # Josh 15:15
@@ -802,6 +865,7 @@ kml.draw_way(way.Suedgrenze_Juda_Jos_15_2, 'ff0000ff', 5)
 # kml.draw_node(obn.d['Kanah 2'] , 'ffffffff', 'ffffffff') # Josh 19:28
 # kml.draw_node(obn.d['Rehob 2'] , 'ffffffff', 'ffffffff') # Josh 19:28
 # kml.draw_node(obn.d['Sidon the Great'] , 'ffffffff', 'ffffffff') # Josh 19:28
+kml.draw_node(obn.Sidon, 'ffffffff', 'ffffffff') # Josh 19:28
 # kml.draw_node(obn.d['Achzib 2'] , 'ffffffff', 'ffffffff') # Josh 19:29
 # kml.draw_node(obn.Hosah, 'ffffffff', 'ffffffff') # Josh 19:29
 # kml.draw_node(obn.Mahalab, 'ffffffff', 'ffffffff') # Josh 19:29
