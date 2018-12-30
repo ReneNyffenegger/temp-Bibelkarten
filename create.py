@@ -438,6 +438,12 @@ obn.Mephaath.description             = "In der Ebene (Jos 13:17 ff)"
 obn.d['Kiriathaim 1'].description    = "In der Ebene (Jos 13:17 ff)"
 obn.Sibmah.description               = "In der Ebene (Jos 13:17 ff)"
 obn.d['Zereth-shahar'].description   = "Auf dem Berg der Talebene (Jos 13:19)"
+obn.d['Baalah 2'].description        = "Baala ist Kirjath-Jearim (Jos 15:9)"
+obn.d['Kiriath-jearim'].description  = "Baala ist Kirjath-Jearim (Jos 15:9)"
+obn.d['Mount Jearim'].description    = "Nordseite ist Kesalon (Jos 15:10)"
+obn.Kesalon                          = "Nordseite des Berges Jearim ist Kesalon (Jos 15:10)"
+obn.d['Kerioth-hezron'].description  = "Kerijoth-Hezron ist Hazor (Jos 15:25)"
+obn.d['Hazor 3'].description         = "Kerijoth-Hezron ist Hazor (Jos 15:25)"
 
 obn.Rabbah.description = "Nahe bei Aroer 2 (Jos 13:25)"
 obn.Hebron.description = "Die Stadt Arbas, des Vaters Enaks, inmitten Juda (Jos 15:13)"
@@ -643,6 +649,7 @@ kml.draw_node(obn.d['Debir 1'] , 'ffffffff', 'ffffffff') # Josh 15:15
 # kml.draw_node(obn.d['Kiriath-sepher'] , 'ffffffff', 'ffffffff') # Josh 15:15
 kml.draw_node(obn.Negeb, 'ffffffff', 'ffffffff') # Josh 15:19
 
+# { Judas Städte im Süden Jos 15:21-32
 
 color_label_juda_sueden = 'ff3355ff'
 color_icon_juda_sueden  = 'ff3355ff'
@@ -686,86 +693,112 @@ kml.draw_node(obn.d['Ain 2']            , color_label_juda_sueden, color_icon_ju
 kml.draw_node(obn.Lebaoth               , color_label_juda_sueden, color_icon_juda_sueden) # Josh 15:32
 kml.draw_node(obn.d['Rimmon 2']         , color_label_juda_sueden, color_icon_juda_sueden) # Josh 15:32
 kml.draw_node(obn.Shilhim               , color_label_juda_sueden, color_icon_juda_sueden) # Josh 15:32
-# kml.draw_node(obn.Ashnah, 'ffffffff', 'ffffffff') # Josh 15:33
-# kml.draw_node(obn.Eshtaol, 'ffffffff', 'ffffffff') # Josh 15:33
-# kml.draw_node(obn.Zorah, 'ffffffff', 'ffffffff') # Josh 15:33
-# kml.draw_node(obn.Enam, 'ffffffff', 'ffffffff') # Josh 15:34
-# kml.draw_node(obn.d['En-gannim 1'] , 'ffffffff', 'ffffffff') # Josh 15:34
-# kml.draw_node(obn.d['Tappuah 2'] , 'ffffffff', 'ffffffff') # Josh 15:34
-# kml.draw_node(obn.d['Zanoah 1'] , 'ffffffff', 'ffffffff') # Josh 15:34
-# kml.draw_node(obn.Adullam, 'ffffffff', 'ffffffff') # Josh 15:35
-# kml.draw_node(obn.Azekah, 'ffffffff', 'ffffffff') # Josh 15:35
-# kml.draw_node(obn.d['Jarmuth 1'] , 'ffffffff', 'ffffffff') # Josh 15:35
-# kml.draw_node(obn.d['Socoh 1'] , 'ffffffff', 'ffffffff') # Josh 15:35
-# kml.draw_node(obn.Adithaim, 'ffffffff', 'ffffffff') # Josh 15:36
-# kml.draw_node(obn.Gederah, 'ffffffff', 'ffffffff') # Josh 15:36
-# kml.draw_node(obn.Gederothaim, 'ffffffff', 'ffffffff') # Josh 15:36
-# kml.draw_node(obn.d['Shaaraim 1'] , 'ffffffff', 'ffffffff') # Josh 15:36
-# kml.draw_node(obn.Hadashah, 'ffffffff', 'ffffffff') # Josh 15:37
-# kml.draw_node(obn.d['Migdal-gad'] , 'ffffffff', 'ffffffff') # Josh 15:37
-# kml.draw_node(obn.Zenan, 'ffffffff', 'ffffffff') # Josh 15:37
-# kml.draw_node(obn.Dilean, 'ffffffff', 'ffffffff') # Josh 15:38
-# kml.draw_node(obn.d['Joktheel 1'] , 'ffffffff', 'ffffffff') # Josh 15:38
-# kml.draw_node(obn.d['Mizpeh 2'] , 'ffffffff', 'ffffffff') # Josh 15:38
-# kml.draw_node(obn.Bozkath, 'ffffffff', 'ffffffff') # Josh 15:39
-# kml.draw_node(obn.Eglon, 'ffffffff', 'ffffffff') # Josh 15:39
-# kml.draw_node(obn.Lachish, 'ffffffff', 'ffffffff') # Josh 15:39
-# kml.draw_node(obn.Cabbon, 'ffffffff', 'ffffffff') # Josh 15:40
-# kml.draw_node(obn.Chitlish, 'ffffffff', 'ffffffff') # Josh 15:40
-# kml.draw_node(obn.Lahmam, 'ffffffff', 'ffffffff') # Josh 15:40
-# kml.draw_node(obn.d['Beth-dagon 1'] , 'ffffffff', 'ffffffff') # Josh 15:41
-# kml.draw_node(obn.Gederoth, 'ffffffff', 'ffffffff') # Josh 15:41
-# kml.draw_node(obn.Makkedah, 'ffffffff', 'ffffffff') # Josh 15:41
-# kml.draw_node(obn.Naamah, 'ffffffff', 'ffffffff') # Josh 15:41
-# kml.draw_node(obn.Ashan, 'ffffffff', 'ffffffff') # Josh 15:42
-# kml.draw_node(obn.Ether, 'ffffffff', 'ffffffff') # Josh 15:42
-# kml.draw_node(obn.d['Libnah 1'] , 'ffffffff', 'ffffffff') # Josh 15:42
-# kml.draw_node(obn.Iphtah, 'ffffffff', 'ffffffff') # Josh 15:43
-# kml.draw_node(obn.Nezib, 'ffffffff', 'ffffffff') # Josh 15:43
-# kml.draw_node(obn.d['Achzib 1'] , 'ffffffff', 'ffffffff') # Josh 15:44
-# kml.draw_node(obn.Keilah, 'ffffffff', 'ffffffff') # Josh 15:44
-# kml.draw_node(obn.Mareshah, 'ffffffff', 'ffffffff') # Josh 15:44
-# kml.draw_node(obn.Jattir, 'ffffffff', 'ffffffff') # Josh 15:48
-# kml.draw_node(obn.d['Shamir 1'] , 'ffffffff', 'ffffffff') # Josh 15:48
-# kml.draw_node(obn.d['Socoh 2'] , 'ffffffff', 'ffffffff') # Josh 15:48
-# kml.draw_node(obn.Dannah, 'ffffffff', 'ffffffff') # Josh 15:49
-# kml.draw_node(obn.d['Kiriath-sannah'] , 'ffffffff', 'ffffffff') # Josh 15:49
-# kml.draw_node(obn.Anab, 'ffffffff', 'ffffffff') # Josh 15:50
-# kml.draw_node(obn.Anim, 'ffffffff', 'ffffffff') # Josh 15:50
-# kml.draw_node(obn.Eshtemoh, 'ffffffff', 'ffffffff') # Josh 15:50
-# kml.draw_node(obn.Giloh, 'ffffffff', 'ffffffff') # Josh 15:51
-# kml.draw_node(obn.d['Goshen 2'] , 'ffffffff', 'ffffffff') # Josh 15:51
-# kml.draw_node(obn.d['Holon 1'] , 'ffffffff', 'ffffffff') # Josh 15:51
-# kml.draw_node(obn.Arab, 'ffffffff', 'ffffffff') # Josh 15:52
-# kml.draw_node(obn.d['Dumah 1'] , 'ffffffff', 'ffffffff') # Josh 15:52
-# kml.draw_node(obn.Eshan, 'ffffffff', 'ffffffff') # Josh 15:52
-# kml.draw_node(obn.Aphekah, 'ffffffff', 'ffffffff') # Josh 15:53
-# kml.draw_node(obn.d['Beth-tappuah'] , 'ffffffff', 'ffffffff') # Josh 15:53
-# kml.draw_node(obn.Janim, 'ffffffff', 'ffffffff') # Josh 15:53
-# kml.draw_node(obn.Humtah, 'ffffffff', 'ffffffff') # Josh 15:54
-# kml.draw_node(obn.Zior, 'ffffffff', 'ffffffff') # Josh 15:54
-# kml.draw_node(obn.Carmel, 'ffffffff', 'ffffffff') # Josh 15:55
-# kml.draw_node(obn.Juttah, 'ffffffff', 'ffffffff') # Josh 15:55
-# kml.draw_node(obn.Maon, 'ffffffff', 'ffffffff') # Josh 15:55
-# kml.draw_node(obn.d['Ziph 1'] , 'ffffffff', 'ffffffff') # Josh 15:55
-# kml.draw_node(obn.Jezreel, 'ffffffff', 'ffffffff') # Josh 15:56
-# kml.draw_node(obn.Jokdeam, 'ffffffff', 'ffffffff') # Josh 15:56
-# kml.draw_node(obn.d['Zanoah 2'] , 'ffffffff', 'ffffffff') # Josh 15:56
-# kml.draw_node(obn.d['Gibeah 2'] , 'ffffffff', 'ffffffff') # Josh 15:57
-# kml.draw_node(obn.Kain, 'ffffffff', 'ffffffff') # Josh 15:57
-# kml.draw_node(obn.d['Timnah 2'] , 'ffffffff', 'ffffffff') # Josh 15:57
-# kml.draw_node(obn.d['Beth-zur'] , 'ffffffff', 'ffffffff') # Josh 15:58
-# kml.draw_node(obn.d['Gedor 1'] , 'ffffffff', 'ffffffff') # Josh 15:58
-# kml.draw_node(obn.Halhul, 'ffffffff', 'ffffffff') # Josh 15:58
-# kml.draw_node(obn.d['Beth-anoth'] , 'ffffffff', 'ffffffff') # Josh 15:59
-# kml.draw_node(obn.Eltekon, 'ffffffff', 'ffffffff') # Josh 15:59
-# kml.draw_node(obn.Maarath, 'ffffffff', 'ffffffff') # Josh 15:59
-# kml.draw_node(obn.d['Kiriath-baal'] , 'ffffffff', 'ffffffff') # Josh 15:60
-# kml.draw_node(obn.Middin, 'ffffffff', 'ffffffff') # Josh 15:61
-# kml.draw_node(obn.Secacah, 'ffffffff', 'ffffffff') # Josh 15:61
-# kml.draw_node(obn.d['City of Salt'] , 'ffffffff', 'ffffffff') # Josh 15:62
-# kml.draw_node(obn.Engedi, 'ffffffff', 'ffffffff') # Josh 15:62
-# kml.draw_node(obn.Nibshan, 'ffffffff', 'ffffffff') # Josh 15:62
+
+# }
+
+# Judas Städte in der Niederung Jos 15:33-47 {
+
+color_label_juda_niederung = 'ff5533ff'
+color_icon_juda_niederung  = 'ff5533ff'
+
+kml.draw_node(obn.Ashnah, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:33
+kml.draw_node(obn.Eshtaol, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:33
+kml.draw_node(obn.Zorah, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:33
+kml.draw_node(obn.Enam, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:34
+kml.draw_node(obn.d['En-gannim 1'] , color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:34
+kml.draw_node(obn.d['Tappuah 2'] , color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:34
+kml.draw_node(obn.d['Zanoah 1'] , color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:34
+kml.draw_node(obn.Adullam, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:35
+kml.draw_node(obn.Azekah, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:35
+kml.draw_node(obn.d['Jarmuth 1'] , color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:35
+kml.draw_node(obn.d['Socoh 1'] , color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:35
+kml.draw_node(obn.Adithaim, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:36
+kml.draw_node(obn.Gederah, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:36 kml.draw_node(obn.Gederothaim, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:36
+kml.draw_node(obn.d['Shaaraim 1'] , color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:36
+kml.draw_node(obn.Hadashah, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:37
+kml.draw_node(obn.d['Migdal-gad'] , color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:37
+kml.draw_node(obn.Zenan, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:37
+kml.draw_node(obn.Dilean, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:38
+kml.draw_node(obn.d['Joktheel 1'] , color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:38
+kml.draw_node(obn.d['Mizpeh 2'] , color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:38
+kml.draw_node(obn.Bozkath, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:39
+kml.draw_node(obn.Eglon, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:39
+kml.draw_node(obn.Lachish, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:39
+kml.draw_node(obn.Cabbon, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:40
+kml.draw_node(obn.Chitlish, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:40
+kml.draw_node(obn.Lahmam, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:40
+kml.draw_node(obn.d['Beth-dagon 1'] , color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:41
+kml.draw_node(obn.Gederoth, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:41
+kml.draw_node(obn.Makkedah, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:41
+kml.draw_node(obn.Naamah, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:41
+kml.draw_node(obn.Ashan, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:42
+kml.draw_node(obn.Ether, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:42
+kml.draw_node(obn.d['Libnah 1'] , color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:42
+kml.draw_node(obn.Iphtah, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:43
+kml.draw_node(obn.Nezib, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:43
+kml.draw_node(obn.d['Achzib 1'] , color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:44
+kml.draw_node(obn.Keilah, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:44
+kml.draw_node(obn.Mareshah, color_label_juda_niederung, color_icon_juda_niederung) # Josh 15:44
+
+# }
+
+# { Judas Städte im Gebirge Jos 15:48-60
+
+color_label_juda_gebirge = 'ff1199cc'
+color_icon_juda_gebirge  = 'ff1199cc'
+
+kml.draw_node(obn.Jattir, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:48
+kml.draw_node(obn.d['Shamir 1'] , color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:48
+kml.draw_node(obn.d['Socoh 2'] , color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:48
+kml.draw_node(obn.Dannah, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:49
+kml.draw_node(obn.d['Kiriath-sannah'] , color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:49
+kml.draw_node(obn.Anab, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:50
+kml.draw_node(obn.Anim, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:50
+kml.draw_node(obn.Eshtemoh, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:50
+kml.draw_node(obn.Giloh, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:51
+kml.draw_node(obn.d['Goshen 2'] , color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:51
+kml.draw_node(obn.d['Holon 1'] , color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:51
+kml.draw_node(obn.Arab, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:52
+kml.draw_node(obn.d['Dumah 1'] , color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:52
+kml.draw_node(obn.Eshan, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:52
+kml.draw_node(obn.Aphekah, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:53
+kml.draw_node(obn.d['Beth-tappuah'] , color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:53
+kml.draw_node(obn.Janim, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:53
+kml.draw_node(obn.Humtah, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:54
+kml.draw_node(obn.Zior, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:54
+kml.draw_node(obn.Carmel, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:55
+kml.draw_node(obn.Juttah, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:55
+kml.draw_node(obn.Maon, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:55
+kml.draw_node(obn.d['Ziph 1'] , color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:55
+kml.draw_node(obn.Jezreel, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:56
+kml.draw_node(obn.Jokdeam, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:56
+kml.draw_node(obn.d['Zanoah 2'] , color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:56
+kml.draw_node(obn.d['Gibeah 2'] , color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:57
+kml.draw_node(obn.Kain, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:57
+kml.draw_node(obn.d['Timnah 2'] , color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:57
+kml.draw_node(obn.d['Beth-zur'] , color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:58
+kml.draw_node(obn.d['Gedor 1'] , color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:58
+kml.draw_node(obn.Halhul, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:58
+kml.draw_node(obn.d['Beth-anoth'] , color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:59
+kml.draw_node(obn.Eltekon, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:59
+kml.draw_node(obn.Maarath, color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:59
+kml.draw_node(obn.d['Kiriath-baal'] , color_label_juda_gebirge, color_icon_juda_gebirge) # Josh 15:60
+
+# }
+
+# { Judas Städte in der Wüste
+
+color_label_juda_wueste = 'ff9911cc'
+color_icon_juda_wueste  = 'ff9911cc'
+
+kml.draw_node(obn.Middin, color_label_juda_wueste, color_icon_juda_wueste) # Josh 15:61
+kml.draw_node(obn.Secacah, color_label_juda_wueste, color_icon_juda_wueste) # Josh 15:61
+kml.draw_node(obn.d['City of Salt'] , color_label_juda_wueste, color_icon_juda_wueste) # Josh 15:62
+kml.draw_node(obn.Engedi, color_label_juda_wueste, color_icon_juda_wueste) # Josh 15:62
+kml.draw_node(obn.Nibshan, color_label_juda_wueste, color_icon_juda_wueste) # Josh 15:62
+
+# }
+
 # kml.draw_node(obn.d['Bethel 1'] , 'ffffffff', 'ffffffff') # Josh 16:1
 # kml.draw_node(obn.d['Ataroth 2'] , 'ffffffff', 'ffffffff') # Josh 16:2
 # kml.draw_node(obn.d['Luz 1'] , 'ffffffff', 'ffffffff') # Josh 16:2
@@ -976,6 +1009,10 @@ kml.draw_node(obn.d['Baalath 1'] , 'ff55ff00', 'ff55ff00')
 kml.draw_node(obn.Leshem         , 'ff55ff00', 'ff55ff00')
 
 # }
+
+
+kml.draw_node(obn.Patmos, 'ffffffff', 'ffffffff')
+kml.draw_node(obn.Elam  , 'ffffffff', 'ffffffff')
 
 kml.write('result.kml')
 
