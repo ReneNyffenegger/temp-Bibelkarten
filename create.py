@@ -329,14 +329,17 @@ way = AddDotAccessToDict(ways)
 def addTQ84Node(name, lon_deg, lon_min, lon_sec, lat_deg, lat_min, lat_sec):
     tq84_nodes[name] = Node(name, deg(lon_deg, lon_min, lon_sec), deg(lat_deg, lat_min, lat_sec))
 
-#                                      East              North
-addTQ84Node('SalzmeerSued'           , 35, 23,  4.67,    30, 55, 41.19)
-addTQ84Node('Hezron'                 , 34, 40, 55.94,    30, 53, 49.65)
-addTQ84Node('BachAegypten_Meer'      , 33, 49, 44.55,    31,  9, 14.32)
-addTQ84Node('SalzmeerJordan'         , 35, 33, 29.49,    31, 45, 43.21)
-addTQ84Node('SteinBohans'            , 35, 24, 36.99,    31, 49, 54.48)
-addTQ84Node('GilgalgegenueberAdummim', 35, 20, 44.50,    31, 49, 41.98)
-addTQ84Node('Geliloth'               , 35, 20, 10.54,    31, 49, 18.81) # openbible seems to be too far in the east!
+#                                               East              North
+addTQ84Node('SalzmeerSued'                    , 35, 23,  4.67,    30, 55, 41.19)
+addTQ84Node('Hezron'                          , 34, 40, 55.94,    30, 53, 49.65)
+addTQ84Node('BachAegypten_Meer'               , 33, 49, 44.55,    31,  9, 14.32)
+addTQ84Node('SalzmeerJordan'                  , 35, 33, 29.49,    31, 45, 43.21)
+addTQ84Node('SteinBohans'                     , 35, 24, 36.99,    31, 49, 54.48)
+addTQ84Node('GilgalgegenueberAdummim'         , 35, 20, 44.50,    31, 49, 41.98)
+addTQ84Node('Geliloth'                        , 35, 20, 10.54,    31, 49, 18.81) # openbible seems to be too far in the east!
+addTQ84Node('Berg_Suedlich_unterem_Beth_Horon', 35,  7, 45.86,    31, 52, 13.40) # Jos 18:13
+addTQ84Node('Scheba'                          , 34, 50,  6.55,    31, 11, 40.41) # Jos 19:2
+addTQ84Node('Bethul'                          , 34, 42, 48.44,    31, 18, 46.66) # Jos 19:4
 
 tqn.GilgalgegenueberAdummim.description = "Gegenüber der Anhöhe Adummim, südlich vom Bach (Jos 15:7)"
 
@@ -439,7 +442,8 @@ obn.d['Kiriathaim 1'].description    = "In der Ebene (Jos 13:17 ff)"
 obn.Sibmah.description               = "In der Ebene (Jos 13:17 ff)"
 obn.d['Zereth-shahar'].description   = "Auf dem Berg der Talebene (Jos 13:19)"
 obn.d['Baalah 2'].description        = "Baala ist Kirjath-Jearim (Jos 15:9)"
-obn.d['Kiriath-jearim'].description  = "Baala ist Kirjath-Jearim (Jos 15:9)"
+obn.d['Kiriath-jearim'].description  = "Baala ist Kirjath-Jearim (Jos 15:9)<br/>Kirjath-Baal ist Kirjath-Jearim (Jos 15:60/Jos 18:14)<br/>Eine Stadt der Kinder Juda (Jos 18:14)"
+obn.d['Kiriath-baal'  ].description  = "Kirjath-Jearim ist Kirjath-Baal (Jos 15:60/Jos 18:14)<br/>Eine Stadt der Kinder Juda (Jos 18:14)"
 obn.d['Mount Jearim'].description    = "Nordseite ist Kesalon (Jos 15:10)"
 obn.Kesalon                          = "Nordseite des Berges Jearim ist Kesalon (Jos 15:10)"
 obn.d['Kerioth-hezron'].description  = "Kerijoth-Hezron ist Hazor (Jos 15:25)"
@@ -451,6 +455,10 @@ obn.d['Debir 1'].description = "Der Name von Debir war Kirjath-Sepher (Jos 15:15
 
 obn.d['Ataroth 2'].description = "Grenze der Arkiter (Jos 16:2)"
 obn.d['Lower Beth-horon'].description = "Grenze der Japhletiter (Jos 16:3)"
+
+obn.d['Beth-aven'].description = 'Bei/in der Wüste (Jos 18:12)'
+obn.d['Bethel 1'].description = 'Lus = Bethel (Jos 18:13)'
+obn.d['Luz 1'].description = 'Lus = Bethel (Jos 18:13)'
 
 # }
 
@@ -883,6 +891,7 @@ kml.draw_node(obn.Gibeon, 'ffffffff', 'ffffffff') # Josh 18:25
 kml.draw_node(obn.d['Ramah 1'] , 'ffffffff', 'ffffffff') # Josh 18:25
 kml.draw_node(obn.d['Mizpeh 1'] , 'ffffffff', 'ffffffff') # Josh 18:26
 
+kml.draw_node(tqn.Berg_Suedlich_unterem_Beth_Horon, 'ffffffff', 'ffffffff') # Josua 18:13
 
 kml.draw_node(obn.Jebus, 'ffffffff', 'ffffffff') # Josh 18:28
 
@@ -915,14 +924,31 @@ kml.draw_node(obn.d['Kiriath-jearim'] , color_label_benjamin, color_icon_benjami
 # }
 
 # }
-# kml.draw_node(obn.Sheba, 'ffffffff', 'ffffffff') # Josh 19:2
-# kml.draw_node(obn.Balah, 'ffffffff', 'ffffffff') # Josh 19:3
-# kml.draw_node(obn.Bethul, 'ffffffff', 'ffffffff') # Josh 19:4
-# kml.draw_node(obn.d['Beth-marcaboth'] , 'ffffffff', 'ffffffff') # Josh 19:5
-# kml.draw_node(obn.d['Hazar-susah'] , 'ffffffff', 'ffffffff') # Josh 19:5
-# kml.draw_node(obn.d['Beth-lebaoth'] , 'ffffffff', 'ffffffff') # Josh 19:6
-# kml.draw_node(obn.Sharuhen, 'ffffffff', 'ffffffff') # Josh 19:6
-# kml.draw_node(obn.d['Baalath-beer'] , 'ffffffff', 'ffffffff') # Josh 19:8
+
+# { Jos 19
+
+# { Simeon Jos 19:1-9
+
+color_label_simeon = 'ffcc5522'
+color_icon_simeon = 'ffcc5522'
+
+#  kml.draw_node(obn.Sheba, color_label_simeon, color_icon_simeon) # Josh 19:2   confused with Sheba
+kml.draw_node(tqn.Sheba, color_label_simeon, color_icon_simeon)
+
+
+kml.draw_node(obn.Balah, color_label_simeon, color_icon_simeon) # Josh 19:3
+
+# kml.draw_node(obn.Bethul, color_label_simeon, color_icon_simeon) # Josh 19:4
+kml.draw_node(tqn.Bethul, color_label_simeon, color_icon_simeon) # Jos 19:4
+
+kml.draw_node(obn.d['Beth-marcaboth'] , color_label_simeon, color_icon_simeon) # Josh 19:5
+kml.draw_node(obn.d['Hazar-susah'] , color_label_simeon, color_icon_simeon) # Josh 19:5
+kml.draw_node(obn.d['Beth-lebaoth'] , color_label_simeon, color_icon_simeon) # Josh 19:6
+kml.draw_node(obn.Sharuhen, color_label_simeon, color_icon_simeon) # Josh 19:6
+kml.draw_node(obn.d['Baalath-beer'] , color_label_simeon, color_icon_simeon) # Josh 19:8
+
+# }
+
 # kml.draw_node(obn.Sarid, 'ffffffff', 'ffffffff') # Josh 19:10
 # kml.draw_node(obn.Dabbesheth, 'ffffffff', 'ffffffff') # Josh 19:11
 # kml.draw_node(obn.Jokneam, 'ffffffff', 'ffffffff') # Josh 19:11
@@ -1022,6 +1048,7 @@ kml.draw_node(obn.Sidon, 'ffffffff', 'ffffffff') # Josh 19:28
 # kml.draw_node(obn.Leshem, 'ffffffff', 'ffffffff') # Josh 19:47
 # kml.draw_node(obn.d['Timnath-serah'] , 'ffffffff', 'ffffffff') # Josh 19:50
 
+# }
 
 # Asser
 kml.draw_way(way.MeerAsser      , 'ff0077ff', 5)
