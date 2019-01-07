@@ -340,6 +340,7 @@ addTQ84Node('Geliloth'                        , 35, 20, 10.54,    31, 49, 18.81)
 addTQ84Node('Berg_Suedlich_unterem_Beth_Horon', 35,  7, 45.86,    31, 52, 13.40) # Jos 18:13
 addTQ84Node('Scheba'                          , 34, 50,  6.55,    31, 11, 40.41) # Jos 19:2
 addTQ84Node('Bethul'                          , 34, 42, 48.44,    31, 18, 46.66) # Jos 19:4
+# addTQ84Node('Scheba'                          , 34, 50, 34.39,    31, 13, 13.11) # Jos 19
 
 tqn.GilgalgegenueberAdummim.description = "Gegenüber der Anhöhe Adummim, südlich vom Bach (Jos 15:7)"
 
@@ -448,6 +449,8 @@ obn.d['Mount Jearim'].description    = "Nordseite ist Kesalon (Jos 15:10)"
 obn.Kesalon                          = "Nordseite des Berges Jearim ist Kesalon (Jos 15:10)"
 obn.d['Kerioth-hezron'].description  = "Kerijoth-Hezron ist Hazor (Jos 15:25)"
 obn.d['Hazor 3'].description         = "Kerijoth-Hezron ist Hazor (Jos 15:25)"
+obn.Beersheba.description            = "Eine Stadt Simeons (Jos 19:2)"
+obn.Moladah.description            = "Eine Stadt Simeons (Jos 19:3)"
 
 obn.Rabbah.description = "Nahe bei Aroer 2 (Jos 13:25)"
 obn.Hebron.description = "Die Stadt Arbas, des Vaters Enaks, inmitten Juda (Jos 15:13)"
@@ -933,7 +936,7 @@ color_label_simeon = 'ffcc5522'
 color_icon_simeon = 'ffcc5522'
 
 #  kml.draw_node(obn.Sheba, color_label_simeon, color_icon_simeon) # Josh 19:2   confused with Sheba
-kml.draw_node(tqn.Sheba, color_label_simeon, color_icon_simeon)
+kml.draw_node(tqn.Scheba, color_label_simeon, color_icon_simeon)
 
 
 kml.draw_node(obn.Balah, color_label_simeon, color_icon_simeon) # Josh 19:3
@@ -949,19 +952,36 @@ kml.draw_node(obn.d['Baalath-beer'] , color_label_simeon, color_icon_simeon) # J
 
 # }
 
-# kml.draw_node(obn.Sarid, 'ffffffff', 'ffffffff') # Josh 19:10
-# kml.draw_node(obn.Dabbesheth, 'ffffffff', 'ffffffff') # Josh 19:11
-# kml.draw_node(obn.Jokneam, 'ffffffff', 'ffffffff') # Josh 19:11
-# kml.draw_node(obn.Mareal, 'ffffffff', 'ffffffff') # Josh 19:11
-# kml.draw_node(obn.d['Chisloth-tabor'] , 'ffffffff', 'ffffffff') # Josh 19:12
-# kml.draw_node(obn.Daberath, 'ffffffff', 'ffffffff') # Josh 19:12
-# kml.draw_node(obn.Japhia, 'ffffffff', 'ffffffff') # Josh 19:12
-# kml.draw_node(obn.d['Eth-kazin'] , 'ffffffff', 'ffffffff') # Josh 19:13
-# kml.draw_node(obn.d['Gath-hepher'] , 'ffffffff', 'ffffffff') # Josh 19:13
-# kml.draw_node(obn.Neah, 'ffffffff', 'ffffffff') # Josh 19:13
-# kml.draw_node(obn.d['Rimmon 3'] , 'ffffffff', 'ffffffff') # Josh 19:13
-# kml.draw_node(obn.Hannathon, 'ffffffff', 'ffffffff') # Josh 19:14
-# kml.draw_node(obn.d['Valley of Iphtahel'] , 'ffffffff', 'ffffffff') # Josh 19:14
+kml.draw_node(obn.Sarid, 'ffffffff', 'ffffffff') # Josh 19:10
+kml.draw_node(obn.Mareal, 'ffffffff', 'ffffffff') # Josh 19:11
+kml.draw_node(obn.Dabbesheth, 'ffffffff', 'ffffffff') # Josh 19:11
+kml.draw_node(obn.Jokneam, 'ffffffff', 'ffffffff') # Josh 19:11
+kml.draw_node(obn.d['Chisloth-tabor'] , 'ffffffff', 'ffffffff') # Josh 19:12
+kml.draw_node(obn.Daberath, 'ffffffff', 'ffffffff') # Josh 19:12
+kml.draw_node(obn.Japhia, 'ffffffff', 'ffffffff') # Josh 19:12
+kml.draw_node(obn.d['Gath-hepher'] , 'ffffffff', 'ffffffff') # Josh 19:13
+kml.draw_node(obn.d['Eth-kazin'] , 'ffffffff', 'ffffffff') # Josh 19:13
+kml.draw_node(obn.d['Rimmon 3'] , 'ffffffff', 'ffffffff') # Josh 19:13
+kml.draw_node(obn.Neah, 'ffffffff', 'ffffffff') # Josh 19:13
+kml.draw_node(obn.Hannathon, 'ffffffff', 'ffffffff') # Josh 19:14
+kml.draw_node(obn.d['Valley of Iphtahel'] , 'ffffffff', 'ffffffff') # Josh 19:14
+
+way.Grenze_Sebulon_Jos_19_11 = Way(
+  obn.Sarid,
+  obn.Mareal,
+  obn.Dabbesheth,
+  obn.Jokneam,
+  obn.d['Chisloth-tabor'] ,
+  obn.Daberath,
+  obn.Japhia,
+  obn.d['Gath-hepher'] ,
+  obn.d['Eth-kazin'] ,
+  obn.d['Rimmon 3'] ,
+  obn.Neah,
+  obn.Hannathon,
+  obn.d['Valley of Iphtahel'])
+kml.draw_way(way.Grenze_Sebulon_Jos_19_11, 'ff775588', 5)
+
 # kml.draw_node(obn.d['Bethlehem 2'] , 'ffffffff', 'ffffffff') # Josh 19:15
 # kml.draw_node(obn.Idalah, 'ffffffff', 'ffffffff') # Josh 19:15
 # kml.draw_node(obn.Kattath, 'ffffffff', 'ffffffff') # Josh 19:15
