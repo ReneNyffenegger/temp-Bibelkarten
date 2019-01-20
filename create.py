@@ -284,12 +284,24 @@ class KML: # {
 		</PolyStyle>
 	</Style>
         -->
+      <Folder>
+	<name>Untitled Folder</name>
+	<Camera>
+		<longitude>35.08266913626239</longitude>
+		<latitude>32.46765784186947</latitude>
+		<altitude>558490.9801019359</altitude>
+		<heading>4.538740631097303</heading>
+		<tilt>1.175330159089605</tilt>
+		<roll>-2.27684395179298</roll>
+		<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+	</Camera>
 """) # }
           return kml_f
      # }
 
       def write_outro(self, kml_f): # {
           kml_f.write("""
+      </Folder>
       </Document>
       </kml>""")
       # }
